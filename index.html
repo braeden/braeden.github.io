@@ -1,0 +1,264 @@
+<html>
+	<head>
+		<title>start</title>
+		<link rel="shortcut icon" type="image/gif" href="<!--INSERT IMG URL HERE>-->" />
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+		<style type="text/css">
+      html {
+      overflow-y: scroll;
+      /*keep scrollbar from pushing content left*/
+      }
+		
+			body {
+			background : #4d4d4d;
+			/*background : radial-gradient(ellipse at center, #00000 0%, #6f6f6f 100%);*/
+			
+			}
+			.keepcentered {
+			position : absolute;
+			left : 50%;
+			top : 50%;
+			width : 480px;
+			height : 300px;
+			margin-left : -240px;
+			margin-top : -200px;
+			font-weight : 100;
+			}
+			body {
+			font-family: 'Roboto', sans-serif;
+			font-style : normal;
+			color : #2EB8B8; /* Change this to change the color of the colored font on the page. 12ccc2 d64937*/
+			margin : 5px;
+			}
+			td, tr {
+			width: 20%;
+			text-align: center;
+			font-weight: bold;
+			
+			}
+			div {
+			text-align:center
+			}
+			a {
+			font-weight: lighter;
+			color : #ffffff;
+			}
+			a:hover{
+			color: #333333;
+			transition: color 0.2s;
+			text-shadow: 2px 2px 2px #fff;
+			}
+			
+			a:link {
+			text-decoration : none;
+			text-shadow: 0px 0px 0px #000;
+			}
+			#reddit-content {
+			margin-top:33%;
+			font-size: 75%;
+			margin-left:20%;
+			margin-right:20%;
+			}
+			#reddit:hover {
+			cursor:pointer;
+			
+			}
+			input {
+      padding: 2px;
+      border: none;
+      border-bottom: solid 3px #e0e0e0;
+      transition: border 0.3s;
+      background-color : #d1d1d1;
+      }
+      input:focus,
+      input.focus {
+      outline: 0;
+      /*(above) get rid of blue on chrome*/
+      border-bottom: solid 3px #666666;
+      }
+      
+      
+      
+      /*Scrollbar CSS*/
+      ::-webkit-scrollbar
+      {
+        width: 8px;  /* for vertical scrollbars */
+      }
+      
+      ::-webkit-scrollbar-track
+      {
+        background: #4d4d4d;
+      }
+      
+      ::-webkit-scrollbar-thumb
+      {
+        background: rgba(0, 0, 0, 0.5);
+      }
+</style>
+	</head>
+		
+	<body onload="updateClock()">
+
+		<div class="keepcentered">
+			<!--<div style="width: 100%; margin: 0px auto;">
+      <form method="get" action="http://www.google.com/search">
+      <input type="text"  placeholder="Search" name="q" size="35" maxlength="255" value="" autofocus/>
+      <input type="submit" value="Google Search" />
+      </div>
+      
+      Google search bar (removed temp)
+      -->
+      <hr>
+			<center><font size=72><div id="time"></div></font></center>
+      <hr>
+			<p><center>
+			<table width="100%" border="0px">
+				<tr>
+					<td>Faves</td>
+					<td>School</td>
+					<td>Google</td>
+					<td>Torrent</td>
+					<td>Other</td>
+				</tr>
+				<tr>
+					<td><a href="http://www.reddit.com">Reddit</a></td>
+					<td><a href="https://drive.google.com/a/students.westport.k12.ct.us/?tab=mo#my-drive">Drive</a></td>
+					<td><a href="http://calendar.google.com">Calendar</a></td>
+					<td><a href="http://kickass.to/">Kick</a></td>
+					<td><a href="http://www.amazon.com">Amazon</a></td>
+				</tr>
+				<tr>
+					<td><a href="https://www.pandora.com">Pandora</a></td>
+					<td><a href="https://hac.westport.k12.ct.us/HomeAccess/Account/LogOn?ReturnUrl=%2fHomeAccess%2fClasses%2fClasswork">Grades</a></td>
+					<td><a href="https://www.Google.com">Search</a></td>
+					<td><a href="http://thepiratebay.se/">Pirate</a></td>
+					
+					<td><a href="https://stacksocial.com/users/1029258/purchases?open=purchase-1344505-1336530">Coding</a></td>
+				</tr>
+				<tr>
+					<td><a href="https://www.netflix.com">Netflix</a></td>
+					<td><a href="http://schoology.westport.k12.ct.us/">Schoology</a></td>
+					<td><a href="http://www.gmail.com">Gmail</a></td>
+					<td><a href="http://torrents.to/">T-Search</a></td>
+					<td><a href="http://www.newegg.com">Newegg</a></td>
+				</tr>
+				<tr>
+					<td><a href="https://www.Amazon.com">Amazon</a></td>
+					<td><a href="http://www.wolframalpha.com/">Wolfram</a></td>
+					<td><a href="http://drive.google.com">Drive</a></td>
+					<td><a href="http://megashare.info/">Mega</a></td>
+					<td><a href="http://www.pixlr.com">Pixlr</a></td>
+					
+				</tr>
+			</table>
+			<br>
+<hr>
+<br>
+<div id="status">You are online</div>
+
+<br>
+<input type="text" id="subreddit" size="20em" placeholder="Subreddit" value="all">
+<p id="reddit"> Reddit Posts </p>
+<!--Reddit Posts expand-->
+
+			</center>
+	
+</div>
+
+<div id="reddit-content">
+<!--Div for Reddit expand-->
+</div>
+<script src="http://code.jquery.com/jquery-latest.min.js">//Jquery script</script>
+
+<script>
+$( "#reddit" ).click(function() {
+  $( "#reddit" ).empty();
+  //Clear Reddit
+  $( "#reddit" ).append( "<b>Loading...<b>" );
+  var sub = $( "#subreddit" ).val();
+  $( "#subreddit" ).hide();
+  //Loading
+    $.getJSON(
+        "http://www.reddit.com/r/" + sub + ".json?jsonp=?",
+        //main function
+        function foo(data)
+        {
+          $.each(
+            data.data.children.slice(0, 25),
+            function (i, post) {
+              $("#reddit-content").append( '<br>' + '<b>' + '<u>' + '<a href="' + post.data.url  + '" target="_blank">' + post.data.title + '</a>' + '</u>' + '</b>');
+              //Post Name and link
+              $("#reddit-content").append( '<br>' + post.data.ups + ' points ' );
+              //Upvotes
+              $("#reddit-content").append( '<br>' + '<b>' + '<a href="http://reddit.com/r/' + post.data.subreddit + '" target="_blank">' + post.data.subreddit + '</a>' + '</b>' );
+              //Subreddit and Sublink
+              $("#reddit-content").append( '<br>' + '<b>' + '<a href="' + post.data.url + '" target="_blank"' + '> Link </a>' + '<b>');
+              //Link
+              $("#reddit-content").append( '<br>' + '<b>' + '<a href="http://reddit.com' + post.data.permalink + '" target="_blank">' + 'Comments </a>' + '<b>');
+              //Comments
+              //$("#reddit-content").append( '<hr>' ); //hr  line
+              $("#reddit-content").append( '<br>' );
+              //Break
+              $("#reddit").hide();
+              //Hide loading
+            }
+          )
+        }
+      )
+      .success(function() { console.log("second success"); })
+      .fail(function(err) {
+        $( "#reddit" ).empty();
+        $( "#reddit" ).append( "<b>Error<b>" );
+        })
+      .error(function(err) {
+        $( "#reddit" ).empty();
+        $( "#reddit" ).append( "<b>Error<b>" );
+        })
+      .complete(function() { console.log("complete"); })
+      //Console Log
+});
+    </script>
+	
+<script>
+function updateOnlineStatus()
+//Online - Offline
+{
+    document.getElementById("status").innerHTML = "You are online";
+    //Online
+}
+
+function updateOfflineStatus()
+{
+    document.getElementById("status").innerHTML = "You are offline";
+    //Offline
+}
+
+window.addEventListener('online',  updateOnlineStatus);
+window.addEventListener('offline', updateOfflineStatus);
+</script>
+<script>
+//Clock
+		function updateClock()
+		{
+			Date.getMinutesTwoDigits = function()
+			{
+				var retval = now.getMinutes();
+				if (retval < 10) return ("0" + retval.toString());
+				else return retval.toString();
+			}
+			Date.getHoursModTwelve = function()
+			{
+				var retval = now.getHours();
+				retval = retval%12;
+				if (retval == 0) retval = 12;
+				return retval;
+			}
+			var now = new Date(),
+			time = Date.getHoursModTwelve() + ':' + Date.getMinutesTwoDigits();
+			document.getElementById('time').innerHTML = ["", time].join('');
+			setTimeout(updateClock, 1000);
+		}
+	</script>
+</body>
+</html>
+<!--Created by Braeden Smith 2014-->
