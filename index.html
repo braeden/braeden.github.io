@@ -1,7 +1,6 @@
 <html>
 	<head>
 		<title>start</title>
-		<link rel="shortcut icon" type="image/gif" href="<!--INSERT IMG URL HERE>-->" />
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
 		<style type="text/css">
       html {
@@ -15,33 +14,45 @@
 			
 			}
 			.keepcentered {
-			position : absolute;
-			left : 50%;
-			top : 50%;
-			width : 480px;
-			height : 300px;
-			margin-left : -240px;
-			margin-top : -200px;
+			text-align: center
 			font-weight : 100;
+			margin-top: 1vh;
 			}
 			body {
+
 			font-family: 'Roboto', sans-serif;
+
 			font-style : normal;
 			color : #2EB8B8; /* Change this to change the color of the colored font on the page. 12ccc2 d64937*/
 			margin : 5px;
+
 			}
-			td, tr {
-			width: 20%;
+			#day {
+			font-size: 6vh;
+			
+			text-align: center;
+			
+			}
+			.period {
+			font-size: 5vh;
+			
 			text-align: center;
 			font-weight: bold;
-			
+			font-weight: lighter;
+			color : #ffffff;
+			}
+			.starttime {
+			font-size: 3vh;
+			text-align: center;
+			}
+			#time {
+			font-size: 6vh;
 			}
 			div {
 			text-align:center
 			}
-			a {
-			font-weight: lighter;
-			color : #ffffff;
+			td, tr {
+
 			}
 			a:hover{
 			color: #333333;
@@ -53,30 +64,10 @@
 			text-decoration : none;
 			text-shadow: 0px 0px 0px #000;
 			}
-			#reddit-content {
-			margin-top:33%;
-			font-size: 75%;
-			margin-left:20%;
-			margin-right:20%;
+			hr {
+			width: 80vw;
+
 			}
-			#reddit:hover {
-			cursor:pointer;
-			
-			}
-			input {
-      padding: 2px;
-      border: none;
-      border-bottom: solid 3px #e0e0e0;
-      transition: border 0.3s;
-      background-color : #d1d1d1;
-      }
-      input:focus,
-      input.focus {
-      outline: 0;
-      /*(above) get rid of blue on chrome*/
-      border-bottom: solid 3px #666666;
-      }
-      
       
       
       /*Scrollbar CSS*/
@@ -97,8 +88,7 @@
 </style>
 	</head>
 		
-	<body onload="updateClock()">
-
+	<body onload="updateClock(); dayOfTheWeek()">
 		<div class="keepcentered">
 			<!--<div style="width: 100%; margin: 0px auto;">
       <form method="get" action="http://www.google.com/search">
@@ -108,133 +98,135 @@
       
       Google search bar (removed temp)
       -->
+			<center><div id="time"></div></center>
       <hr>
-			<center><font size=72><div id="time"></div></font></center>
-      <hr>
-			<p><center>
 			<table width="100%" border="0px">
 				<tr>
-					<td>Faves</td>
-					<td>School</td>
-					<td>Google</td>
-					<td>Torrent</td>
-					<td>Other</td>
+					<td id=day></td>
 				</tr>
 				<tr>
-					<td><a href="http://www.reddit.com">Reddit</a></td>
-					<td><a href="https://drive.google.com/a/students.westport.k12.ct.us/?tab=mo#my-drive">Drive</a></td>
-					<td><a href="http://calendar.google.com">Calendar</a></td>
-					<td><a href="http://kickass.to/">Kick</a></td>
-					<td><a href="http://www.amazon.com">Amazon</a></td>
+					<td class=period id=0></td>
 				</tr>
 				<tr>
-					<td><a href="https://www.pandora.com">Pandora</a></td>
-					<td><a href="https://hac.westport.k12.ct.us/HomeAccess/Account/LogOn?ReturnUrl=%2fHomeAccess%2fClasses%2fClasswork">Grades</a></td>
-					<td><a href="https://www.Google.com">Search</a></td>
-					<td><a href="http://thepiratebay.se/">Pirate</a></td>
-					
-					<td><a href="https://stacksocial.com/users/1029258/purchases?open=purchase-1344505-1336530">Coding</a></td>
+					<td class=starttime id=stime0></td>
 				</tr>
 				<tr>
-					<td><a href="https://www.netflix.com">Netflix</a></td>
-					<td><a href="http://schoology.westport.k12.ct.us/">Schoology</a></td>
-					<td><a href="http://www.gmail.com">Gmail</a></td>
-					<td><a href="http://torrents.to/">T-Search</a></td>
-					<td><a href="http://www.newegg.com">Newegg</a></td>
+					<td class=period id=1></td>
 				</tr>
 				<tr>
-					<td><a href="https://www.Amazon.com">Amazon</a></td>
-					<td><a href="http://www.wolframalpha.com/">Wolfram</a></td>
-					<td><a href="http://drive.google.com">Drive</a></td>
-					<td><a href="http://megashare.info/">Mega</a></td>
-					<td><a href="http://www.pixlr.com">Pixlr</a></td>
-					
+					<td class=starttime id=stime1></td>
 				</tr>
+				<tr>
+					<td class=period id=2></td>
+				</tr>
+				<tr>
+					<td class=starttime id=stime2></td>
+				</tr>
+				<tr>
+					<td class=period id=3></td>
+				</tr>
+				<tr>
+					<td class=starttime id=stime3></td>
+				</tr>
+				<tr>
+					<td class=period id=4></td>
+				</tr>
+				<tr>
+					<td class=starttime id=stime4></td>
+				</tr>
+				<tr>
+					<td class=period id=5></td>
+				</tr>
+				<tr>
+					<td class=starttime id=stime5></td>
+				</tr>
+				<tr>
+					<td class=period id=6></td>
+				</tr>
+				<tr>
+					<td class=starttime id=stime6></td>
+				</tr>
+				<tr>
+					<td class=period id=7></td>
+				</tr>
+				<tr>
+					<td class=starttime id=stime7></td>
+				</tr>
+
+
 			</table>
-			<br>
 <hr>
-<br>
-<div id="status">You are online</div>
 
-<br>
-<input type="text" id="subreddit" size="20em" placeholder="Subreddit" value="all">
-<p id="reddit"> Reddit Posts </p>
-<!--Reddit Posts expand-->
-
-			</center>
-	
-</div>
-
-<div id="reddit-content">
-<!--Div for Reddit expand-->
 </div>
 <script src="http://code.jquery.com/jquery-latest.min.js">//Jquery script</script>
 
 <script>
-$( "#reddit" ).click(function() {
-  $( "#reddit" ).empty();
-  //Clear Reddit
-  $( "#reddit" ).append( "<b>Loading...<b>" );
-  var sub = $( "#subreddit" ).val();
-  $( "#subreddit" ).hide();
-  //Loading
-    $.getJSON(
-        "http://www.reddit.com/r/" + sub + ".json?jsonp=?",
-        //main function
-        function foo(data)
-        {
-          $.each(
-            data.data.children.slice(0, 25),
-            function (i, post) {
-              $("#reddit-content").append( '<br>' + '<b>' + '<u>' + '<a href="' + post.data.url  + '" target="_blank">' + post.data.title + '</a>' + '</u>' + '</b>');
-              //Post Name and link
-              $("#reddit-content").append( '<br>' + post.data.ups + ' points ' );
-              //Upvotes
-              $("#reddit-content").append( '<br>' + '<b>' + '<a href="http://reddit.com/r/' + post.data.subreddit + '" target="_blank">' + post.data.subreddit + '</a>' + '</b>' );
-              //Subreddit and Sublink
-              $("#reddit-content").append( '<br>' + '<b>' + '<a href="' + post.data.url + '" target="_blank"' + '> Link </a>' + '<b>');
-              //Link
-              $("#reddit-content").append( '<br>' + '<b>' + '<a href="http://reddit.com' + post.data.permalink + '" target="_blank">' + 'Comments </a>' + '<b>');
-              //Comments
-              //$("#reddit-content").append( '<hr>' ); //hr  line
-              $("#reddit-content").append( '<br>' );
-              //Break
-              $("#reddit").hide();
-              //Hide loading
-            }
-          )
-        }
-      )
-      .success(function() { console.log("second success"); })
-      .fail(function(err) {
-        $( "#reddit" ).empty();
-        $( "#reddit" ).append( "<b>Error<b>" );
-        })
-      .error(function(err) {
-        $( "#reddit" ).empty();
-        $( "#reddit" ).append( "<b>Error<b>" );
-        })
-      .complete(function() { console.log("complete"); })
-      //Console Log
-});
-    </script>
-	
-<script>
-function updateOnlineStatus()
-//Online - Offline
-{
-    document.getElementById("status").innerHTML = "You are online";
-    //Online
+function dayOfTheWeek() {
+    var d = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+    var n = weekday[d.getDay()];
+    document.getElementById("day").innerHTML = n;
+    scheduleCreator(n);
 }
+function scheduleCreator(day) {
+	var ArrMonday = [
+    "7",
+    "7:30",
+    "8:14",
+    "2",
+    "8:19",
+    "9:06",
+    "3",
+    "9:11",
+    "9:58",
+    "4",
+    "10:03",
+    "10:48",
+    "5",
+    "11:58",
+    "12:33",
+    "1",
+    "12:38",
+    "1:24",
+    "8",
+    "1:29",
+    "2:15"
+	];
+	var stringdayis = "Arr"
+	dayis = ArrMonday;
+	console.log(day);
+	for (i=0; i<dayis.length; i=i+3) {
+		dayPeriod = dayis[i];
+		document.getElementById(i/3).innerHTML = "Period " + dayPeriod;
+	}
+	for (i=1; i<dayis.length; i=i+3) {
+		startPeriod = dayis[i];
+		endPeriod = dayis[i+1];
+		time = updateClock();
 
-function updateOfflineStatus()
-{
-    document.getElementById("status").innerHTML = "You are offline";
-    //Offline
+		numTime = startPeriod.replace(':','');
+		intTime = parseInt(numTime);
+
+		endnumTime = endPeriod.replace(':','');
+		endintTime = parseInt(endnumTime);
+
+		curnumTime = time.replace(':','');
+		curintTime = parseInt(curnumTime);
+		if (curintTime > intTime && curintTime < endintTime) {
+			var element = document.getElementById(((i-1)/3).toString());
+			element.style.fontWeight = 'bold';
+		}
+		document.getElementById("stime" + (i-1)/3).innerHTML = startPeriod + " - " +endPeriod;
+	}
+	//day.array
 }
-
-window.addEventListener('online',  updateOnlineStatus);
-window.addEventListener('offline', updateOfflineStatus);
 </script>
 <script>
 //Clock
@@ -257,6 +249,7 @@ window.addEventListener('offline', updateOfflineStatus);
 			time = Date.getHoursModTwelve() + ':' + Date.getMinutesTwoDigits();
 			document.getElementById('time').innerHTML = ["", time].join('');
 			setTimeout(updateClock, 1000);
+			return time;
 		}
 	</script>
 </body>
