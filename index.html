@@ -41,9 +41,12 @@
 			font-weight: lighter;
 			color : #ffffff;
 			}
-			.starttime {
+			.starttime, #timeremaining {
 			font-size: 3vh;
 			text-align: center;
+			}
+			#timeremaining {
+			color: #FFC107;
 			}
 			#time {
 			font-size: 6vh;
@@ -156,7 +159,7 @@
 
 			</table>
 <hr>
-
+	<center><div id="timeremaining"></div></center>
 </div>
 <script src="http://code.jquery.com/jquery-latest.min.js">//Jquery script</script>
 
@@ -315,9 +318,18 @@ function scheduleCreator(day) {
 
 		curnumTime = time.replace(':','');
 		curintTime = parseInt(curnumTime);
+
+
 		if (curintTime > intTime && curintTime < endintTime) {
 			var element = document.getElementById(((i-1)/3).toString());
 			element.style.fontWeight = 'bold';
+			var remaining = endintTime-curintTime;
+			if (remaining!=1){
+				document.getElementById("timeremaining").innerHTML = remaining + " Minutes Remaining";
+			} else {
+				document.getElementById("timeremaining").innerHTML = remaining + " Minute Remaining";
+			}
+			
 		}
 		document.getElementById("stime" + (i-1)/3).innerHTML = startPeriod + " - " +endPeriod;
 	}
