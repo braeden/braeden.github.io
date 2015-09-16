@@ -120,12 +120,11 @@ function scheduleCreator(day) {
     "1:29",
     "2:15"
 	];
-	day = "Tuesday"
 	if (day=="Monday") {
 	 dayis = ArrMonday;
 	} else if (day=="Tuesday") {
 	 dayis = ArrTuesday;
-	}else if (day=="Wednesday") {
+	} else if (day=="Wednesday") {
 	 dayis = ArrWednesday;
 	} else if (day=="Thursday") {
 	 dayis = ArrThursday;
