@@ -161,7 +161,7 @@ function scheduleCreator(day) {
              //   console.log("Yess")
                // var remaining = endintTime-curintTime-40;
             //} else if ()
-            var remaining = endintTime-curintTime-40;
+            var remaining = endintTime-curintTime;
             if (remaining > 60) {
                 remaining -= 40
             }
