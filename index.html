@@ -2,105 +2,33 @@
 	<head>
 		<title>start</title>
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
-		<style type="text/css">
-      html {
-      overflow-y: scroll;
-      /*keep scrollbar from pushing content left*/
-      }
 		
-			body {
-			background : #4d4d4d;
-			/*background : radial-gradient(ellipse at center, #00000 0%, #6f6f6f 100%);*/
-			
-			}
-			.keepcentered {
-			text-align: center
-			font-weight : 100;
-			margin-top: 1vh;
-			}
-			body {
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<!-- Not yet
+		<link rel="stylesheet" type="text/css" href="menu.css"> -->
+		<script src="http://code.jquery.com/jquery-latest.min.js">//Jquery script</script>
+		
 
-			font-family: 'Roboto', sans-serif;
-
-			font-style : normal;
-			color : #2EB8B8; /* Change this to change the color of the colored font on the page. 12ccc2 d64937*/
-			margin : 5px;
-
-			}
-			#day {
-			font-size: 6vh;
-			
-			text-align: center;
-			
-			}
-			.period {
-			font-size: 5vh;
-			
-			text-align: center;
-			font-weight: bold;
-			font-weight: lighter;
-			color : #ffffff;
-			}
-			.starttime, #timeremaining {
-			font-size: 3vh;
-			text-align: center;
-			}
-			#timeremaining {
-			color: #FFC107;
-			}
-			#time {
-			font-size: 6vh;
-			}
-			div {
-			text-align:center
-			}
-			td, tr {
-
-			}
-			a:hover{
-			color: #333333;
-			transition: color 0.2s;
-			text-shadow: 2px 2px 2px #fff;
-			}
-			
-			a:link {
-			text-decoration : none;
-			text-shadow: 0px 0px 0px #000;
-			}
-			hr {
-			width: 80vw;
-
-			}
-      
-      
-      /*Scrollbar CSS*/
-      ::-webkit-scrollbar
-      {
-        width: 8px;  /* for vertical scrollbars */
-      }
-      
-      ::-webkit-scrollbar-track
-      {
-        background: #4d4d4d;
-      }
-      
-      ::-webkit-scrollbar-thumb
-      {
-        background: rgba(0, 0, 0, 0.5);
-      }
-</style>
 	</head>
-		
+
 	<body onload="updateClock(); dayOfTheWeek()">
+			<!--
+		<div class="box">
+		  <div class="icon">
+		    <i>&times;</i>
+		    <span class="tap"></span>
+		  </div>
+		  <ul class="list">
+		    <li><a href="#">Schedule</a></li>
+		    <li><a href="#">HAC</a></li>
+		    <li><a href="#">Assignments</a></li>
+		    <li><a href="#">Classes</a></li>
+		  </ul>
+		</div>
+-->
 		<div class="keepcentered">
-			<!--<div style="width: 100%; margin: 0px auto;">
-      <form method="get" action="http://www.google.com/search">
-      <input type="text"  placeholder="Search" name="q" size="35" maxlength="255" value="" autofocus/>
-      <input type="submit" value="Google Search" />
-      </div>
-      
-      Google search bar (removed temp)
-      -->
+
+
 			<center><div id="time"></div></center>
       <hr>
 			<table width="100%" border="0px">
@@ -161,183 +89,10 @@
 <hr>
 	<center><div id="timeremaining"></div></center>
 </div>
-<script src="http://code.jquery.com/jquery-latest.min.js">//Jquery script</script>
-
-<script>
-function dayOfTheWeek() {
-    var d = new Date();
-    var weekday = new Array(7);
-    weekday[0] = "Sunday";
-    weekday[1] = "Monday";
-    weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday";
-    weekday[4] = "Thursday";
-    weekday[5] = "Friday";
-    weekday[6] = "Saturday";
-    var n = weekday[d.getDay()];
-    document.getElementById("day").innerHTML = n;
-    scheduleCreator(n);
-}
-function scheduleCreator(day) {
-//Excuse the horrible code, will be put in a database soon
-	var ArrMonday = [
-    "7",
-    "7:30",
-    "8:14",
-    "2",
-    "8:19",
-    "9:06",
-    "3",
-    "9:11",
-    "9:58",
-    "4",
-    "10:03",
-    "10:48",
-    "5",
-    "11:58",
-    "12:33",
-    "1",
-    "12:38",
-    "1:24",
-    "8",
-    "1:29",
-    "2:15"
-	];
-	var ArrTuesday = [
-    "6",
-    "7:30",
-    "8:20",
-    "2",
-    "8:25",
-    "9:45",
-    "3",
-    "9:50",
-    "10:40",
-    "1",
-    "10:45",
-    "12:25",
-    "5",
-    "12:30",
-    "1:20",
-    "7",
-    "1:25",
-    "2:15",
-	];
-	var ArrWednesday = [
-    "8",
-    "7:30",
-    "8:20",
-    "3",
-    "8:25",
-    "9:45",
-    "2",
-    "9:50",
-    "10:40",
-    "6",
-    "10:45",
-    "12:25",
-    "7",
-    "12:30",
-    "1:20",
-    "4",
-    "1:25",
-    "2:15",
-	];
-	var ArrThurday = [
-    "5",
-    "7:30",
-    "8:20",
-    "8",
-    "8:25",
-    "9:45",
-    "4",
-    "9:50",
-    "10:40",
-    "7",
-    "10:45",
-    "12:25",
-    "6",
-    "12:30",
-    "1:20",
-    "1",
-    "1:25",
-    "2:15",
-	];
-	var ArrFriday = [
-    "3",
-    "7:30",
-    "8:14",
-    "2",
-    "8:19",
-    "9:06",
-    "8",
-    "9:11",
-    "9:58",
-    "1",
-    "10:03",
-    "10:48",
-    "4",
-    "11:58",
-    "12:33",
-    "5",
-    "12:38",
-    "1:24",
-    "6",
-    "1:29",
-    "2:15"
-	];
-	day = "Tuesday"
-	if (day=="Monday") {
-	 dayis = ArrMonday;
-	} else if (day=="Tuesday") {
-	 dayis = ArrTuesday;
-	}else if (day=="Wednesday") {
-	 dayis = ArrWednesday;
-	} else if (day=="Thursday") {
-	 dayis = ArrThursday;
-	} else if (day=="Friday") {
-	 dayis = ArrFriday;
-	} else {
-	 dayis = ArrMonday
-	 document.getElementById("day").innerHTML = "Have a nice weekend! Monday's schedule below:";
-	}
-	for (i=0; i<dayis.length; i=i+3) {
-		dayPeriod = dayis[i];
-		document.getElementById(i/3).innerHTML = "Period " + dayPeriod;
-	}
-	for (i=1; i<dayis.length; i=i+3) {
-		startPeriod = dayis[i];
-		endPeriod = dayis[i+1];
-		time = updateClock();
-
-		numTime = startPeriod.replace(':','');
-		intTime = parseInt(numTime);
-
-		endnumTime = endPeriod.replace(':','');
-		endintTime = parseInt(endnumTime);
-
-		curnumTime = time.replace(':','');
-		curintTime = parseInt(curnumTime);
 
 
-		if (curintTime > intTime && curintTime < endintTime) {
-			var element = document.getElementById(((i-1)/3).toString());
-			element.style.fontWeight = 'bold';
-			var remaining = endintTime-curintTime;
-			if (remaining!=1){
-				document.getElementById("timeremaining").innerHTML = remaining + " Minutes Remaining";
-			} else {
-				document.getElementById("timeremaining").innerHTML = remaining + " Minute Remaining";
-			}
-			
-		}
-		document.getElementById("stime" + (i-1)/3).innerHTML = startPeriod + " - " +endPeriod;
-	}
-	
-	//day.array
-}
-
-</script>
+<script src="schedule.js"></script>
+<!--<script src="menu.js"></script>-->
 <script>
 //Clock
 		function updateClock()
