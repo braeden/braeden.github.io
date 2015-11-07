@@ -1,128 +1,75 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>start</title>
-		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
-		
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<!-- Not yet
-		<link rel="stylesheet" type="text/css" href="menu.css"> -->
-		<script src="http://code.jquery.com/jquery-latest.min.js">//Jquery script</script>
-		
+<head>
+    <title>Mobile Menu Hamburger</title>
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <!--Using jQuery and jQuery UI for display effects-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 
-	</head>
+    <!--Using the hamburger menu display code-->
+    <script src="menu.js"></script>
+    <script src="time.js"></script>
 
-	<body onload="updateClock(); dayOfTheWeek()">
-			<!--
-		<div class="box">
-		  <div class="icon">
-		    <i>&times;</i>
-		    <span class="tap"></span>
-		  </div>
-		  <ul class="list">
-		    <li><a href="#">Schedule</a></li>
-		    <li><a href="#">HAC</a></li>
-		    <li><a href="#">Assignments</a></li>
-		    <li><a href="#">Classes</a></li>
-		  </ul>
-		</div>
--->
-		<div class="keepcentered">
+    <!--Using Media Queries, if the viewport is smaller than 700px use another stylesheet-->
+    <link rel="stylesheet" type="text/css" media="all" href="menu.css"/>
+</head>
 
+<body>
+<!--This wrapping container is used to get the width of the whole content-->
+<div id="container">
 
-			<center><div id="time"></div></center>
-      <hr>
-			<table width="100%" border="0px">
-				<tr>
-					<td id=day></td>
-				</tr>
-				<tr>
-					<td class=period id=0></td>
-				</tr>
-				<tr>
-					<td class=starttime id=stime0></td>
-				</tr>
-				<tr>
-					<td class=period id=1></td>
-				</tr>
-				<tr>
-					<td class=starttime id=stime1></td>
-				</tr>
-				<tr>
-					<td class=period id=2></td>
-				</tr>
-				<tr>
-					<td class=starttime id=stime2></td>
-				</tr>
-				<tr>
-					<td class=period id=3></td>
-				</tr>
-				<tr>
-					<td class=starttime id=stime3></td>
-				</tr>
-				<tr>
-					<td class=period id=4></td>
-				</tr>
-				<tr>
-					<td class=starttime id=stime4></td>
-				</tr>
-				<tr>
-					<td class=period id=5></td>
-				</tr>
-				<tr>
-					<td class=starttime id=stime5></td>
-				</tr>
-				<tr>
-					<td class=period id=6></td>
-				</tr>
-				<tr>
-					<td class=starttime id=stime6></td>
-				</tr>
-				<tr>
-					<td class=period id=7></td>
-				</tr>
-				<tr>
-					<td class=starttime id=stime7></td>
-				</tr>
+    <!--The Hamburger Button in the Header-->
+    <header>
+        <div id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
 
+    <!--The mobile navigation Markup hidden via css-->
+    <nav>
+        <ul>
+            <li><a href="#">Schedule</a></li>
+            <li><a href="#">Grades</a></li>
+            <li><a href="#">Homework</a></li>
+        </ul>
+    </nav>
 
-			</table>
-<hr>
-	<center><div id="timeremaining"></div></center>
+    <!--The Layer that will be layed over the content
+    so that the content is unclickable while menu is shown-->
+    <div id="contentLayer"></div>
+
+    <!--The content of the site-->
+    <div id="content">
+        <h1 id="time">a</h1>
+        <h2>A Mobile Menu Template</h2>
+
+        <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+            eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+            voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+            sit amet.
+        </p>
+
+        <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+            eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+            voluptua.
+        </p>
+
+        <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+            eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+            voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+            sit amet.
+        </p>
+    </div>
+
 </div>
-
-
-<script src="schedule.js"></script>
-<!--<script src="menu.js"></script>-->
-<script>
-//Clock
-		function updateClock()
-		{
-			Date.getMinutesTwoDigits = function()
-			{
-				var retval = now.getMinutes();
-				if (retval < 10) return ("0" + retval.toString());
-				else return retval.toString();
-			}
-			Date.getHoursModTwelve = function()
-			{
-				var retval = now.getHours();
-				retval = retval%12;
-				if (retval == 0) retval = 12;
-				return retval;
-			}
-			var now = new Date(),
-			time = Date.getHoursModTwelve() + ':' + Date.getMinutesTwoDigits();
-			document.getElementById('time').innerHTML = ["", time].join('');
-			setTimeout(updateClock, 1000);
-			return time;
-		}
-	</script>
-<script type="text/javascript">
-  //Refresh page every minute
-  setTimeout(function(){
-    location = ''
-  },60000)
-</script>
 </body>
 </html>
-<!--Created by Braeden Smith 2014-->
