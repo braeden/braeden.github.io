@@ -1,6 +1,6 @@
 #login {
   width: 35vh;
-  min-width: 10%;
+  min-width: 10em;
   margin: 4em auto;
   padding: 1em 2em 2em 2em;
   background: #fafafa;
@@ -23,10 +23,11 @@ input {
   height:30px;
   border: 0px;
   border-bottom: 3px solid #888888;
-  background-color: #E3F2FD;
+  background-color: #E0E0E0;
   transition: background-color 500ms ease;
-  min-width: 50%;
+  min-width: 10em;
   max-width: 80%
+  transition: all 500ms ease;
   /*min-width: 75%;*/
 }
 
@@ -43,7 +44,7 @@ input:focus {
   margin: 0 auto;
   margin-top: 1.5em;
   transition: all 500ms ease;
-  min-width: 50%;
+  min-width: 8em;
   max-width: 80%
 }
 #enter p {
