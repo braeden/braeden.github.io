@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="menu.js"></script>
+    <script src="loginJQ.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="menu.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="login.css"/>
+</head>
+
+<body>
+<div id="container">
+
+    <header>
+        <div id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Schedule</a></li>
+            <li><a href="#">Grades</a></li>
+            <li><a href="#">Homework</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </nav>
+
+    <!--The Layer that will be layed over the content
+    so that the content is unclickable while menu is shown-->
+    <div id="contentLayer"></div>
+
+    <!--The content of the site-->
+    <div id="content">
+        <div id="login">
+            <h1>HAC Login</h1>
+            <input type='text' placeholder='Username' autofocus> 
+            <input type='password' placeholder='Password'> 
+            <div id='enter'><p>Sign In</p></div>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
