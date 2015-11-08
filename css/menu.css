@@ -56,7 +56,6 @@ the hamburger button with a little gradient effekt
     position: relative;
     width: 25px;
     background: #006064;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4569b2', endColorstr='#4062a5', GradientType=0);
 }
 
 /*
@@ -64,12 +63,22 @@ The white stripes in the hamburger button
 */
 #hamburger div {
     background-color: #fff;
-    border: 1px solid #eee;
+    border: 1px solid #fff;
     height: 2px;
     margin-top: 3px;
     width: 90%;
 }
 
+#pagetitle {
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    left: -25px;
+    right: 0;
+    top: -10px;
+}
 /*
 The navigation container in the background
 */

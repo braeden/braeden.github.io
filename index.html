@@ -6,20 +6,22 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
-    <script src="menu.js"></script>
-    <script src="time.js"></script>
-    <link rel="stylesheet" type="text/css" media="all" href="menu.css"/>
+    <script src="js/menu.js"></script>
+    <script src="js/time.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="css/menu.css"/>
 </head>
 <!-- Credit for base design: https://github.com/ymc-thzi/mobile-menu-hamburger -->
 <body>
 <div id="container">
 
     <header>
+        <div id="pagetitle"><h2>Schedule</h2></div>
         <div id="hamburger">
             <div></div>
             <div></div>
             <div></div>
         </div>
+        
     </header>
     <nav>
         <ul>
@@ -32,7 +34,6 @@
     <div id="contentLayer"></div>
     <div id="content">
         <h1 id="time">1:11</h1>
-        <h2>Schedule</h2>
 
         <p>
             In the future there will be a schedule here, need to figure out how to parse external JSON

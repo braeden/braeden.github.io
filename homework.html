@@ -7,21 +7,23 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="menu.js"></script>
-    <script src="assignments.js"></script>
-    <link rel="stylesheet" type="text/css" media="all" href="menu.css"/>
-    <link rel="stylesheet" type="text/css" media="all" href="homework.css"/>
+    <script src="js/menu.js"></script>
+    <script src="js/assignments.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="css/menu.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="css/homework.css"/>
 </head>
 <!-- Credit for base design: https://github.com/ymc-thzi/mobile-menu-hamburger -->
 <body>
 <div id="container">
 
     <header>
+        <div id="pagetitle"><h2>Homework</h2></div>
         <div id="hamburger">
             <div></div>
             <div></div>
             <div></div>
         </div>
+
     </header>
     <nav>
         <ul>
@@ -34,8 +36,6 @@
     <div id="contentLayer"></div>
     <div id="content">
         <h1 id="result"></h1>
-        <h2>Homework</h2>
-
         <div id="getinput">
             <input type='text' placeholder='Assignment' autofocus>
             <input type="text" id="datepicker" placeholder="Date Due"></p>
