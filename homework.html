@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Homework</title>
     <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"/>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="menu.js"></script>
-    <script src="loginJQ.js"></script>
+    <script src="assignments.js"></script>
     <link rel="stylesheet" type="text/css" media="all" href="menu.css"/>
-    <link rel="stylesheet" type="text/css" media="all" href="login.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="homework.css"/>
 </head>
-
+<!-- Credit for base design: https://github.com/ymc-thzi/mobile-menu-hamburger -->
 <body>
 <div id="container">
 
@@ -27,24 +27,23 @@
         <ul>
             <li><a href="index.html">Schedule</a></li>
             <li><a href="#">Grades</a></li>
-            <li><a href="homework.html">Homework</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="#">Homework</a></li>
+            <li><a href="login.html">Login</a></li>
         </ul>
     </nav>
-
-    <!--The Layer that will be layed over the content
-    so that the content is unclickable while menu is shown-->
     <div id="contentLayer"></div>
-
-    <!--The content of the site-->
     <div id="content">
-        <div id="login">
-            <h1>HAC Login</h1>
-            <input type='text' placeholder='Username' autofocus> 
-            <input type='password' placeholder='Password'> 
-            <div id='enter'><p>Sign In</p></div>
+        <h1 id="result"></h1>
+        <h2>Homework</h2>
+
+        <div id="getinput">
+            <input type='text' placeholder='Assignment' autofocus>
+            <input type="text" id="datepicker" placeholder="Date Due"></p>
+            <div id='cancelit'><p>Cancel</p></div>
+            <div id='addit'><p>Add</p></div>
 
         </div>
+        <div id="plusbutton">+</div>
     </div>
 
 </div>
