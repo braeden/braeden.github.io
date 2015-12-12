@@ -1,3 +1,9 @@
+
+.circle {
+    border-radius: 25%;
+}
+
+
 html {
 overflow-y: scroll;
 /*keep scrollbar from pushing content left*/
