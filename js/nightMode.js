@@ -15,8 +15,8 @@ function nightMode(cb) {
     ( /(?:^|\s)mdl-color-text--grey-800(?!\S)/g , '' )
     document.getElementById("main-content").className += " mdl-color-text--grey-300";
 
-  }else{ //Change to light
-  	
+  } else {  //Change to light
+
    	//Change foreground
    	document.getElementById("main-content").className =
  	document.getElementById("main-content").className.replace
@@ -31,7 +31,6 @@ function nightMode(cb) {
  	document.getElementById("main-content").className.replace
     ( /(?:^|\s)mdl-color-text--grey-300(?!\S)/g , '' )
     document.getElementById("main-content").className += " mdl-color-text--grey-800";
-
 
 /* For future use to keep the ribbon from getting cut
     var parent = document.getElementById("insert-ribbons");
