@@ -18,6 +18,15 @@ function nightMode(cb) {
     ( /(?:^|\s)mdl-color-text--grey-800(?!\S)/g , '' )
     document.getElementById("main-content").className += " mdl-color-text--grey-300";
 
+    //Nav drawer background color
+   	document.getElementById("drawer").style.background = "#000"
+
+   	//Nav drawer text color
+   	document.getElementById("drawer").className =
+ 	document.getElementById("drawer").className.replace
+    ( /(?:^|\s)mdl-color-text--grey-800(?!\S)/g , '' )
+    document.getElementById("drawer").className += " mdl-color-text--grey-300";
+    
   } else {  //Change to light
 
    	//Change foreground
@@ -37,5 +46,14 @@ function nightMode(cb) {
  	document.getElementById("main-content").className.replace
     ( /(?:^|\s)mdl-color-text--grey-300(?!\S)/g , '' )
     document.getElementById("main-content").className += " mdl-color-text--grey-800";
+
+    //Nav drawer background color
+    document.getElementById("drawer").style.background = "#fff"
+
+    //Nav drawer text color
+    document.getElementById("drawer").className =
+ 	document.getElementById("drawer").className.replace
+    ( /(?:^|\s)mdl-color-text--grey-00(?!\S)/g , '' )
+    document.getElementById("drawer").className += " mdl-color-text--grey-800";
   }
 }
