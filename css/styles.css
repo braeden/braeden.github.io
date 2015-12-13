@@ -83,3 +83,9 @@ img {
   margin-bottom: 40px;
   z-index: 900;
 }
+
+#night-mode-span {
+  float:right;
+  margin-right: 2.5em;
+  text-align: right;
+}
