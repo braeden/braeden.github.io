@@ -74,6 +74,12 @@ img {
   border-radius: 1%;
 }
 
-lable {
-  visibility: visibile;
+#email-button {
+  position: fixed;
+  display: block;
+  right: 0;
+  bottom: 0;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  z-index: 900;
 }
