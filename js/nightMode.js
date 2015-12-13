@@ -44,7 +44,7 @@ function nightMode(cb) {
 		document.getElementById("drawer").style.background = "#fff"
 
 		//Nav drawer text color
-		document.getElementById("drawer").className = document.getElementById("drawer").className.replace( /(?:^|\s)mdl-color-text--grey-00(?!\S)/g , '' )
+		document.getElementById("drawer").className = document.getElementById("drawer").className.replace( /(?:^|\s)mdl-color-text--grey-300(?!\S)/g , '' )
 		document.getElementById("drawer").className += " mdl-color-text--grey-800";
   }
 }
