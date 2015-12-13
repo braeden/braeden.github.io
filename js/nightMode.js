@@ -9,6 +9,9 @@ function nightMode(cb) {
     //Change background
     document.getElementById("main").style.background = "#000";
 
+    //Change ribbon
+    document.getElementById("ribbon").style.background = "#000";
+
 	//Change text color
     document.getElementById("main-content").className =
  	document.getElementById("main-content").className.replace
@@ -24,7 +27,10 @@ function nightMode(cb) {
     document.getElementById("main-content").className += " mdl-color--white";
 
     //Change background
-    document.getElementById("main").style.background = "#fff";
+    document.getElementById("main").removeAttribute("style");
+
+    //Restore ribbon
+    document.getElementById("ribbon").style.background = "#37474F";
 
     //Change text color
     document.getElementById("main-content").className =
