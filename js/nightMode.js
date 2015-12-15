@@ -3,7 +3,7 @@ function nightMode(cb) {
 		
 		//Change foreground
 		document.getElementById("main-content").className =
-			document.getElementById("main-content").className.replace
+		document.getElementById("main-content").className.replace
 		( /(?:^|\s)mdl-color--white(?!\S)/g , '' )
 		document.getElementById("main-content").className += " mdl-color--black";
 
@@ -24,9 +24,9 @@ function nightMode(cb) {
 		document.getElementById("drawer").className = document.getElementById("drawer").className.replace( /(?:^|\s)mdl-color-text--grey-800(?!\S)/g , '' )
 		document.getElementById("drawer").className += " mdl-color-text--grey-300";
 	    
-	    //Switch icon to sun
-	    document.getElementById("moon").style.display = "none";
-	    document.getElementById("sun").style.display = null;
+		//Switch icon to sun
+		document.getElementById("moon").style.display = "none";
+		document.getElementById("sun").style.display = null;
 	} else { //Change to light
 
 		//Change foreground
@@ -51,7 +51,7 @@ function nightMode(cb) {
 		document.getElementById("drawer").className += " mdl-color-text--grey-800";
 
 		//Switch icon to moon
-	    document.getElementById("sun").style.display = "none";
-	    document.getElementById("moon").style.display = null;
+		document.getElementById("sun").style.display = "none";
+		document.getElementById("moon").style.display = null;
   }
 }
