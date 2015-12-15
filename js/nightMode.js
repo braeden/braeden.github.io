@@ -24,6 +24,9 @@ function nightMode(cb) {
 		document.getElementById("drawer").className = document.getElementById("drawer").className.replace( /(?:^|\s)mdl-color-text--grey-800(?!\S)/g , '' )
 		document.getElementById("drawer").className += " mdl-color-text--grey-300";
 	    
+	    //Switch icon to sun
+	    document.getElementById("moon").style.display = "none";
+	    document.getElementById("sun").style.display = null;
 	} else { //Change to light
 
 		//Change foreground
@@ -46,5 +49,9 @@ function nightMode(cb) {
 		//Nav drawer text color
 		document.getElementById("drawer").className = document.getElementById("drawer").className.replace( /(?:^|\s)mdl-color-text--grey-300(?!\S)/g , '' )
 		document.getElementById("drawer").className += " mdl-color-text--grey-800";
+
+		//Switch icon to moon
+	    document.getElementById("sun").style.display = "none";
+	    document.getElementById("moon").style.display = null;
   }
 }

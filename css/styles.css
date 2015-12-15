@@ -63,7 +63,7 @@
   font-size: 13px;
 }
 
-img {
+.content-img {
   max-width:100%;
   max-height:100%;
   display:block;
@@ -74,7 +74,7 @@ img {
   border-radius: 1%;
 }
 
-#email-button {
+#email-fab {
   position: fixed;
   display: block;
   right: 0;
@@ -86,6 +86,6 @@ img {
 
 #night-mode-span {
   float:right;
-  margin-right: 2.5em;
+  margin-right: 2em;
   text-align: right;
 }
