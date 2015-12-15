@@ -100,3 +100,17 @@
   margin-right: 2em;
   text-align: right;
 }
+
+.light-code {
+  white-space: pre;
+  font-family: Courier New, monospace;
+  font-size: 110%;
+  background-color: #E0E0E0;
+}
+
+.dark-code {
+  white-space: pre;
+  font-family: Courier New, monospace;
+  font-size: 110%;
+  background-color: #424242;
+}

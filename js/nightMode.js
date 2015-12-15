@@ -27,6 +27,15 @@ function nightMode(cb) {
 		//Switch icon to sun
 		document.getElementById("moon").style.display = "none";
 		document.getElementById("sun").style.display = null;
+
+		//Change code class (background color)
+		var elements = document.getElementsByClassName('light-code');
+		for (var i in elements) {
+			if (elements.hasOwnProperty(i)) {
+				elements[i].className = 'dark-code';
+			}
+		}
+
 	} else { //Change to light
 
 		//Change foreground
@@ -53,5 +62,13 @@ function nightMode(cb) {
 		//Switch icon to moon
 		document.getElementById("sun").style.display = "none";
 		document.getElementById("moon").style.display = null;
-  }
+
+		//Change code class (background color)
+		var elements = document.getElementsByClassName('dark-code');
+		for (var i in elements) {
+			if (elements.hasOwnProperty(i)) {
+				elements[i].className = 'light-code';
+			}
+		}
+	}
 }
