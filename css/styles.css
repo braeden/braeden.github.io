@@ -84,6 +84,17 @@
   z-index: 900;
 }
 
+#moon {
+  /*
+  Used to flip moon icon,
+  Didn't like original look
+  */
+  transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+}
+
 #night-mode-span {
   float:right;
   margin-right: 2em;
