@@ -103,6 +103,10 @@
 
 .light-code {
   white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word; 
   font-family: Courier New, monospace;
   font-size: 110%;
   background-color: #E0E0E0;
@@ -110,6 +114,10 @@
 
 .dark-code {
   white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word; 
   font-family: Courier New, monospace;
   font-size: 110%;
   background-color: #212121;
