@@ -102,15 +102,15 @@
 }
 
 .light-code {
-  white-space: pre;
+  white-space: pre-wrap;
   font-family: Courier New, monospace;
   font-size: 110%;
   background-color: #E0E0E0;
 }
 
 .dark-code {
-  white-space: pre;
+  white-space: pre-wrap;
   font-family: Courier New, monospace;
   font-size: 110%;
-  background-color: #424242;
+  background-color: #212121;
 }
