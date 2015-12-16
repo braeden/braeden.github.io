@@ -25,6 +25,7 @@
 }
 
 .main {
+  position: relative;
   margin-top: 5vh;
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
