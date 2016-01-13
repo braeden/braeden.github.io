@@ -237,8 +237,6 @@ void setup() {
   textSize(20);
   textAlign(CENTER);
   noCursor();
-  
-  t = System.nanoTime();
 
   bricks = new Brick[100];
   float wdth = width/10; //Standard Brick width
@@ -267,9 +265,6 @@ void setup() {
 
 void draw() {
   
-  long ct = System.nanoTime();
-  float dt = (ct - t) / 1000000000.0;
-  t = ct;
   if (!focused) { paused = true; }
   background(255);
   if (lives == 0) {
