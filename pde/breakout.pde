@@ -214,12 +214,12 @@ void restartGame() {
   setup();
 }
 void keyPressed() {
-  if (key == 'r' || key == 'R') {
+  if (key == "r" || key == "R") {
     lives = 3;
     score = 0;
     redraw = false;
     setup();
-  } else if (key == 'p'  || key == 'P') {
+  } else if (key == "p"  || key == "P") {
     paused = !paused;
   }
 }
