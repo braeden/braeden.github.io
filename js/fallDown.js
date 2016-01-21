@@ -33,6 +33,8 @@ if (window.DeviceMotionEvent != undefined) {
 		sphere.style.left = x + "px";
 		
 	}, 25);
+} else {
+	console.log("No Accelerometer")
 } 
 
 
