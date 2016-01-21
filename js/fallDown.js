@@ -15,6 +15,5 @@ function accelerometerUpdate(e) {
    // tilt. Not really needed. 
    xPos = Math.atan2(aY, aZ);
    yPos = Math.atan2(aX, aZ);
-   console.log(xPos)
-   console.log(yPos)
+   aData.innerHTML = "X: " + xPos + "Y: " + yPost;
 }
