@@ -16,7 +16,7 @@ if (window.DeviceMotionEvent != undefined) {
 	setInterval( function() {
 		var landscapeOrientation = window.innerWidth/window.innerHeight > 1;
 		if ( landscapeOrientation) {
-			vx = vx + ay;
+			vx = vx - ay;
 			vy = vy + ax;
 		} else {
 			vy = vy + ay;
