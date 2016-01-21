@@ -15,10 +15,10 @@ if (window.DeviceMotionEvent != undefined) {
 
 	setInterval( function() {
 		var landscapeOrientation = window.innerWidth/window.innerHeight > 1;
-		if ( landscapeOrientation) {
-			vx = vx - ay;
-			vy = vy + ax;
-		} else {
+		//if ( landscapeOrientation) {
+		//	vx = vx - ay;
+		//	vy = vy + ax;
+		//} else {
 			vy = vy + ay;
 			vx = vx - ax;
 		}
@@ -32,7 +32,7 @@ if (window.DeviceMotionEvent != undefined) {
 		sphere.style.top = y + "px";
 		sphere.style.left = x + "px";
 		
-	}, 25);
+	}, 10);
 } else {
 	console.log("No Accelerometer")
 } 
