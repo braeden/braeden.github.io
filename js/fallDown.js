@@ -4,10 +4,11 @@ function checkAccel() {
     alert("no accelerometer");
   } else {
     alert("accelerometer found");
-    window.addEventListener("devicemotion", accelerometerUpdate, true);
+   // window.addEventListener("devicemotion", accelerometerUpdate, true);
   }
 }
-function accelerometerUpdate(e) {
+setInterval(function() {
+ // function accelerometerUpdate(e) {
    var aX = event.accelerationIncludingGravity.x*1;
    var aY = event.accelerationIncludingGravity.y*1;
    var aZ = event.accelerationIncludingGravity.z*1;
@@ -16,4 +17,6 @@ function accelerometerUpdate(e) {
    xPos = Math.atan2(aY, aZ);
    yPos = Math.atan2(aX, aZ);
    aData.innerHTML = "X: " + xPos + "Y: " + yPost;
-}
+//}
+}, 1000); 
+
