@@ -19,8 +19,8 @@ if (window.DeviceMotionEvent != undefined) {
 		//	vx = vx - ay;
 		//	vy = vy + ax;
 		//} else {
-			vx -= ay;
-			vy += ax;			
+			vx += ax;
+			vy -= ay;			
 		//}
 		vx = vx * 0.98;
 		vy = vy * 0.98;
