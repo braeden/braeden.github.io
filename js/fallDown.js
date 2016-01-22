@@ -19,8 +19,8 @@ if (window.DeviceMotionEvent != undefined) {
 		//	vx = vx - ay;
 		//	vy = vy + ax;
 		//} else {
-			vx += ax;
-			vy -= ay;			
+			vx -= ay;
+			vy += ax;			
 		//}
 		vx = vx * 0.98;
 		vy = vy * 0.98;
@@ -29,8 +29,8 @@ if (window.DeviceMotionEvent != undefined) {
 		
 		boundingBoxCheck();
 		
-		sphere.style.top = y + "px";
-		sphere.style.left = x + "px";
+		sphere.style.top = x + "px";
+		sphere.style.left = y + "px";
 		
 	}, 25);
 } else {
