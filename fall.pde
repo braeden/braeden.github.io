@@ -67,9 +67,11 @@ class Line {
       spawnLine();
       score++;
     }
-    if (yCord <= b.y+10 && yCord >= b.y+7) {
+    if (yCord == b.y+10) {
       if (b.x < holePoint || b.x+5 > holePoint+45) {
         b.y--;
+      } else {
+        b.y++;
       }
     }
   }
