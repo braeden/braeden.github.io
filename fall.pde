@@ -1,5 +1,4 @@
 Ball b;
-long t;
 int score;
 ArrayList<Line> lines = new ArrayList<Line>();
 void setup() {
@@ -18,9 +17,6 @@ void setup() {
 }
 void draw() {
   background(0);
-  long ct = System.nanoTime();
-  float dt = (ct - t) / 1000000000.0;
-  t = ct;
   b.update();
   b.display();
   for (int i = lines.size() - 1; i >= 0; i--) {
