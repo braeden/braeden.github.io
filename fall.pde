@@ -70,8 +70,6 @@ class Line {
     if (yCord == b.y+10) {
       if (b.x < holePoint || b.x+5 > holePoint+45) {
         b.y--;
-      } else {
-        b.y++;
       }
     }
   }
