@@ -39,7 +39,6 @@ class Ball {
   void update() {
     x += vx;
     y += vy;
-    
     if (b.x+10 > width) {
       b.x = width-10;
     } else if (b.x-10 < 0) {
