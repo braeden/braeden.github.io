@@ -29,7 +29,7 @@ void draw() {
 }
 class Ball {
   int x = width/2;
-  int y = height/2-50;
+  int y = height-100;
   int vx = 0;
   int vy = 1;
   Ball() {}
