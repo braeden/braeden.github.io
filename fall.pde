@@ -31,7 +31,7 @@ class Ball {
   int x = width/2;
   int y = height/2-50;
   int vx = 0;
-  int vy = 3;
+  int vy = 5;
   Ball() {}
   void display() {
     ellipse(x, y, 20, 20);
@@ -85,9 +85,9 @@ void gameUpdate(Line l) {
 void keyPressed() {
   if (key == CODED) {
     if (keyCode == LEFT) {
-      b.vx=-5;
+      b.vx=-8;
     } else if (keyCode == RIGHT) {
-      b.vx=5;
+      b.vx=8;
     } else if (keyCode == DOWN) {
       b.vx = 0;
     }
