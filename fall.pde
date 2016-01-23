@@ -47,6 +47,7 @@ class Ball {
     if (b.y<10) {
       setup();
     }
+    
   }
 }
 class Line {
@@ -60,6 +61,9 @@ class Line {
     line(0, yCord, holePoint, yCord);
     line(holePoint+50, yCord, width, yCord);
   }
+  void update() {
+    
+  }
   void check() {
     if (yCord<0) { //Create and delete lines
       lines.remove(0);
@@ -69,6 +73,7 @@ class Line {
     if (yCord == b.y+10) {
       if (b.x < holePoint || b.x+5 > holePoint+45) {
         b.y--;
+      } else {
       }
     }
   }
@@ -85,9 +90,9 @@ void gameUpdate(Line l) {
 void keyPressed() {
   if (key == CODED) {
     if (keyCode == LEFT) {
-      b.vx=-8;
+      b.vx=-4;
     } else if (keyCode == RIGHT) {
-      b.vx=8;
+      b.vx=4;
     } else if (keyCode == DOWN) {
       b.vx = 0;
     }
