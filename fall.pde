@@ -17,7 +17,7 @@ void setup() {
   }
 }
 void draw() {
-  clear();
+  processing.background(0);
   long ct = System.nanoTime();
   float dt = (ct - t) / 1000000000.0;
   t = ct;
