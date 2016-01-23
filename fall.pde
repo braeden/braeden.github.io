@@ -31,7 +31,7 @@ class Ball {
   int x = width/2;
   int y = height/2-50;
   int vx = 0;
-  int vy = 1;
+  int vy = 3;
   Ball() {}
   void display() {
     ellipse(x, y, 20, 20);
@@ -47,7 +47,6 @@ class Ball {
     if (b.y<10) {
       setup();
     }
-    
   }
 }
 class Line {
@@ -61,9 +60,6 @@ class Line {
     line(0, yCord, holePoint, yCord);
     line(holePoint+50, yCord, width, yCord);
   }
-  void update() {
-    
-  }
   void check() {
     if (yCord<0) { //Create and delete lines
       lines.remove(0);
@@ -73,7 +69,6 @@ class Line {
     if (yCord == b.y+10) {
       if (b.x < holePoint || b.x+5 > holePoint+45) {
         b.y--;
-      } else {
       }
     }
   }
@@ -84,24 +79,15 @@ void spawnLine() {
 }
 
 void gameUpdate(Line l) {
-  if (l.yCord<0) { //Create and delete lines
-    lines.remove(l);
-    spawnLine();
-  }
-  if (l.yCord == b.y+10) {
-    if (b.x < l.holePoint || b.x > l.holePoint+50) {
-      b.y--;
-    }
-  }
   l.yCord--;
 }
   
 void keyPressed() {
   if (key == CODED) {
     if (keyCode == LEFT) {
-      b.vx=-4;
+      b.vx=-5;
     } else if (keyCode == RIGHT) {
-      b.vx=4;
+      b.vx=5;
     } else if (keyCode == DOWN) {
       b.vx = 0;
     }
