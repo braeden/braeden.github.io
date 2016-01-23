@@ -31,7 +31,7 @@ class Ball {
   int x = width/2;
   int y = height/2-50;
   int vx = 0;
-  int vy = 0;
+  int vy = 1;
   Ball() {}
   void display() {
     ellipse(x, y, 20, 20);
@@ -47,7 +47,6 @@ class Ball {
     if (b.y<10) {
       setup();
     }
-    
   }
 }
 class Line {
@@ -84,6 +83,15 @@ void spawnLine() {
 }
 
 void gameUpdate(Line l) {
+  if (l.yCord<0) { //Create and delete lines
+    lines.remove(l);
+    spawnLine();
+  }
+  if (l.yCord == b.y+10) {
+    if (b.x < l.holePoint || b.x > l.holePoint+50) {
+      b.y--;
+    }
+  }
   l.yCord--;
 }
   
