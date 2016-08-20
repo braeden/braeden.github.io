@@ -1,0 +1,11 @@
+﻿<html>
+
+<head>
+<title><script>alert("CSS");</script></title>
+</head>
+
+<body>
+The content of the document......
+</body>
+
+</html>
