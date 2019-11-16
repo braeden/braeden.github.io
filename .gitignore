@@ -1,0 +1,31 @@
+
+# Created by https://www.gitignore.io/api/web,visualstudiocode
+# Edit at https://www.gitignore.io/?templates=web,visualstudiocode
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+
+### Web ###
+*.asp
+*.cer
+*.csr
+*.css
+*.htm
+*.html
+*.js
+*.jsp
+*.php
+*.rss
+*.wasm
+*.wat
+*.xhtml
+
+# End of https://www.gitignore.io/api/web,visualstudiocode
