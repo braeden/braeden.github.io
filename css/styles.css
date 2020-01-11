@@ -50,15 +50,23 @@ body {
 .svg-container {
     position: relative;
     width: 29em;
-    padding: 1em;
+    padding-top: 1em;
+
+    padding-left: 1.5em;
     max-width: 85vw;
+    min-width: 30vw;
+    padding-bottom: 0em;
     overflow: hidden;
 }
 
 p {
     color: #bbb;
     line-height: 1.6;
-    font-size: 1.5em;
+    /* font-size: 1.5em;
+     */
+    font-size: calc(18px + (30 - 18) * ((100vw - 300px) / (2400 - 300)));
+    /* line-height: calc(1.3em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300))); */
+
     font-family: 'Roboto', sans-serif;
     padding-left: 1em;
     padding-right: 1em;
@@ -96,7 +104,6 @@ a:hover {
 
 #p-footer {
     line-height: 1;
-    font-size: 1.2em;
     font-family: 'Roboto', sans-serif;
     padding-left: 1em;
     padding-right: 1em;
@@ -104,5 +111,5 @@ a:hover {
 }
 
 #footer-pad {
-    height: 2.5em;
+    height: 3em;
 }
