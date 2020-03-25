@@ -275,11 +275,9 @@
     in Computer Engineering.
   </p>
   <p>
-    I've worked for several super awesome companies, doing software development for Castle.io and CAST
-    Software. My experience mostly involves: JavaScript/TypeScript, Python, Ruby, Java, Bash and C, and I'm always
+    I've worked for several super awesome companies, most recently I was a software engineering intern at <a href="https://castle.io">Castle.io</a>. My experience mostly involves: JavaScript/TypeScript, Python, Ruby, Java, Bash and C, and I'm always
     excited to learn new technologies!
   </p>
-
   <p>
 
     Feel free to check out my <a href="resume">resume</a> to see a better description of my skills.
@@ -297,8 +295,43 @@
         href="mailto:braedensmith2@gmail.com">Email</a>
     </p>
   </div>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/three.js"></script>
+
+  <!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> -->
+
+
+  <script type="x-shader/x-vertex" id="vertexshader">
+
+    attribute float scale;
+
+    void main() {
+
+      vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+
+      gl_PointSize = scale * ( 400.0 / - mvPosition.z );
+
+      gl_Position = projectionMatrix * mvPosition;
+
+    }
+
+  </script>
+
+  <script type="x-shader/x-fragment" id="fragmentshader">
+
+    uniform vec3 color;
+
+    void main() {
+
+      if ( length( gl_PointCoord - vec2( 0.5, 0.5 ) ) > 0.475 ) discard;
+
+      gl_FragColor = vec4( color, 1.0 );
+
+    }
+
+  </script>
+
+
+  <script defer src="js/main.js"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71321949-3"></script>
   <script>
@@ -308,6 +341,12 @@
 
     gtag('config', 'UA-71321949-3');
   </script>
+
+
+  <script type="module">
+
+  </script>
+
 
 </body>
 

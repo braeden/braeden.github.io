@@ -1,109 +1,193 @@
-particlesJS("particles-js", {
-    "particles": {
-        "number": {
-            "value": 400,
-            "density": {
-                "enable": true,
-                "value_area": 5000
-            }
-        },
-        "color": {
-            "value": "#fff"
-        },
-        "shape": {
-            "type": "polygon",
-            "stroke": {
-                "width": 0,
-                "color": "#000000"
-            },
-            "polygon": {
-                "nb_sides": 4
-            },
-            "image": {
-                "src": "img/github.svg",
-                "width": 100,
-                "height": 100
-            }
-        },
-        "opacity": {
-            "value": 0.5,
-            "random": false,
-            "anim": {
-                "enable": true,
-                "speed": 0.2,
-                "opacity_min": 0,
-                "sync": false
-            }
-        },
-        "size": {
-            "value": 2,
-            "random": true,
-            "anim": {
-                "enable": true,
-                "speed": 2,
-                "size_min": 0,
-                "sync": false
-            }
-        },
-        "line_linked": {
-            "enable": false,
-            "distance": 150,
-            "color": "#ffffff",
-            "opacity": 0.4,
-            "width": 1
-        },
-        "move": {
-            "enable": true,
-            "speed": 1,
-            "direction": "none",
-            "random": true,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-            "attract": {
-                "enable": false,
-                "rotateX": 600,
-                "rotateY": 1200
-            }
+//source: https://github.com/mrdoob/three.js/blob/master/examples/webgl_points_waves.html
+var SEPARATION = 30,
+    AMOUNTX = 70,
+    AMOUNTY = 70;
+
+var container;
+var camera, scene, renderer;
+
+var particles, count = 0;
+
+var mouseX = 0,
+    mouseY = 0;
+
+var windowHalfX = window.innerWidth / 2;
+var windowHalfY = window.innerHeight / 2;
+
+init();
+animate();
+
+function init() {
+
+    container = document.getElementById("particles-js");
+    document.body.appendChild(container);
+
+    camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 10000);
+    camera.position.z = 500;
+    camera.position.y = 200;
+    scene = new THREE.Scene();
+
+    //
+
+    var numParticles = AMOUNTX * AMOUNTY;
+
+    var positions = new Float32Array(numParticles * 3);
+    var scales = new Float32Array(numParticles);
+
+    var i = 0,
+        j = 0;
+
+    for (var ix = 0; ix < AMOUNTX; ix++) {
+
+        for (var iy = 0; iy < AMOUNTY; iy++) {
+
+            positions[i] = ix * SEPARATION - ((AMOUNTX * SEPARATION) / 2); // x
+            positions[i + 1] = 0; // y
+            positions[i + 2] = iy * SEPARATION - ((AMOUNTY * SEPARATION) / 2); // z
+
+            scales[j] = 1;
+
+            i += 3;
+            j++;
+
         }
-    },
-    "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-            "onhover": {
-                "enable": true,
-                "mode": "bubble"
+
+    }
+    var geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('scale', new THREE.BufferAttribute(scales, 1));
+
+    var material = new THREE.ShaderMaterial({
+
+        uniforms: {
+            color: {
+                value: new THREE.Color(Math.random()*0xffffff)
             },
-            "onclick": {
-                "enable": false,
-            },
-            "resize": true
         },
-        "modes": {
-            "grab": {
-                "distance": 400,
-                "line_linked": {
-                    "opacity": 1
-                }
-            },
-            "bubble": {
-                "distance": 83.91608391608392,
-                "size": 1,
-                "duration": 3,
-                "opacity": 1,
-                "speed": 3
-            },
-            "repulse": {
-                "distance": 200,
-                "duration": 0.4
-            },
-            "push": {
-                "particles_nb": 4
-            },
-            "remove": {
-                "particles_nb": 2
-            }
+        vertexShader: document.getElementById('vertexshader').textContent,
+        fragmentShader: document.getElementById('fragmentshader').textContent
+
+    });
+
+    //
+
+    particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+
+    //
+
+    renderer = new THREE.WebGLRenderer({
+        antialias: true
+    });
+    renderer.setClearColor(0x111111)
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    container.appendChild(renderer.domElement);
+
+    document.addEventListener('mousemove', onDocumentMouseMove, false);
+    document.addEventListener('touchstart', onDocumentTouchStart, false);
+    document.addEventListener('touchmove', onDocumentTouchMove, false);
+
+    //
+
+    window.addEventListener('resize', onWindowResize, false);
+
+}
+
+function onWindowResize() {
+
+    windowHalfX = window.innerWidth / 2;
+    windowHalfY = window.innerHeight / 2;
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+}
+
+//
+
+function onDocumentMouseMove(event) {
+
+    mouseX = event.clientX - windowHalfX;
+    mouseY = event.clientY - windowHalfY;
+
+}
+
+function onDocumentTouchStart(event) {
+
+    if (event.touches.length === 1) {
+
+        event.preventDefault();
+
+        mouseX = event.touches[0].pageX - windowHalfX;
+        mouseY = event.touches[0].pageY - windowHalfY;
+
+    }
+
+}
+
+function onDocumentTouchMove(event) {
+
+    if (event.touches.length === 1) {
+
+        event.preventDefault();
+
+        mouseX = event.touches[0].pageX - windowHalfX;
+        mouseY = event.touches[0].pageY - windowHalfY;
+
+    }
+
+}
+
+//
+
+function animate() {
+
+    requestAnimationFrame(animate);
+
+    render();
+
+}
+
+function render() {
+
+    camera.position.x += (mouseX - camera.position.x) * .005;
+    camera.position.y += (-mouseY - camera.position.y) * .005;
+    if (camera.position.y < 30) {
+        camera.position.y = 30
+    }
+    camera.lookAt(scene.position);
+
+    var positions = particles.geometry.attributes.position.array;
+    var scales = particles.geometry.attributes.scale.array;
+
+    var i = 0,
+        j = 0;
+
+    for (var ix = 0; ix < AMOUNTX; ix++) {
+
+        for (var iy = 0; iy < AMOUNTY; iy++) {
+
+            positions[i + 1] = (Math.sin((ix + count) * 0.3) * 10) +
+                (Math.sin((iy + count) * 0.6) * 10);
+
+            scales[j] = (Math.sin((ix + count) * 0.3) + 1) * 1 +
+                (Math.sin((iy + count) * 0.5) + 1) * 1;
+
+            i += 3;
+            j++;
+
         }
-    },
-    "retina_detect": true
-});
+
+    }
+
+    particles.geometry.attributes.position.needsUpdate = true;
+    particles.geometry.attributes.scale.needsUpdate = true;
+
+    renderer.render(scene, camera);
+
+    count += 0.1;
+
+}
