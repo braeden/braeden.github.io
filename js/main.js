@@ -24,7 +24,7 @@ function init() {
 
     camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 10000);
     camera.position.z = 500;
-    camera.position.y = 200;
+    // camera.position.y = 100;
     scene = new THREE.Scene();
 
     //
@@ -56,12 +56,12 @@ function init() {
     var geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geometry.setAttribute('scale', new THREE.BufferAttribute(scales, 1));
-
+    var colors = [0xffde03, 0x0335ff, 0xff0266, 0x02EE67, 0xffa325]
     var material = new THREE.ShaderMaterial({
 
         uniforms: {
             color: {
-                value: new THREE.Color(Math.random()*0xffffff)
+                value: new THREE.Color(colors[Math.floor(Math.random()*colors.length)])
             },
         },
         vertexShader: document.getElementById('vertexshader').textContent,
@@ -165,16 +165,17 @@ function render() {
 
     var i = 0,
         j = 0;
-
+    // let c = 1;
+    // if (typeof window.orientation !== "undefined") c = 2;
     for (var ix = 0; ix < AMOUNTX; ix++) {
 
         for (var iy = 0; iy < AMOUNTY; iy++) {
-
+            
             positions[i + 1] = (Math.sin((ix + count) * 0.3) * 10) +
                 (Math.sin((iy + count) * 0.6) * 10);
 
-            scales[j] = (Math.sin((ix + count) * 0.3) + 1) * 1 +
-                (Math.sin((iy + count) * 0.5) + 1) * 1;
+            scales[j] = (Math.sin((ix + count) * 0.3) + 1) * 3 +
+                (Math.sin((iy + count) * 0.5) + 1) * 3;
 
             i += 3;
             j++;
