@@ -1,3 +1,6 @@
+const emojis = ["🙋🏼‍♂️","👋","🤚","🚀","🤘","😁","👨🏼‍💻","👌","✌️","🙌","🤙","🖖","🌈"];
+document.getElementById('emoji').innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
 particlesJS("particles-js", {
     "particles": {
         "number": {
