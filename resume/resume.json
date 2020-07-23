@@ -1,0 +1,163 @@
+{
+  "selectedTemplate": 1,
+  "headings": {
+    "education": "Education",
+    "skills": "Skills",
+    "projects": "Projects",
+    "awards": ""
+  },
+  "basics": {
+    "email": "braeden2@illinois.edu",
+    "website": "linkedin.com/braeden-smith",
+    "name": "Braeden Smith",
+    "phone": "braeden.dev"
+  },
+  "education": [{
+    "area": "Computer Engineering",
+    "studyType": "BS",
+    "startDate": "Aug 2018",
+    "endDate": "May 2022",
+    "gpa": "3.50",
+    "institution": "University of Illinois at Urbana-Champaign"
+  }],
+  "work": [{
+      "company": "Vistaprint",
+      "location": "Remote (Boston, MA)",
+      "position": "Software Engineering Intern",
+      "website": "",
+      "startDate": "Jul 2020",
+      "endDate": "Present",
+      "highlights": [
+        "",
+        ""
+      ]
+    },
+    {
+      "highlights": [
+        "Developed a full stack web app and a sophisticated Node.js serverless function which integrated to create a scalable credential stuffing attack demo",
+        "Created several Ruby tools which interfaced with sales APIs to collate data and verify accuracy of leads in order to effectively target potential customers",
+        "Contributed to an Angular project for product demos, which displayed Castle's functionality including API calls, a simulated browser flow, email view, and device switcher in a single page application"
+      ],
+      "company": "Castle.io",
+      "position": "Software Engineering Intern",
+      "location": "San Francisco, CA",
+      "startDate": "May 2019",
+      "endDate": "Aug 2019"
+    },
+    {
+      "highlights": [
+        "Developed a Jenkins plugin in Java to run after successful CI/CD which served to easily integrate CAST’s static code analysis and result upload in the build process",
+        "Programmatically added 1500+ library/framework identifiers and associated information for Python, PHP, C#/.NET and Java, so CAST Highlight could recognize many popular libraries",
+        "Introduced dozens of “Cloud Readiness” patterns for Python and PHP in CAST Highlight"
+      ],
+      "company": "CAST Software",
+      "position": "Software Engineering Intern",
+      "location": "New York City, NY",
+      "startDate": "Jul 2018",
+      "endDate": "Aug 2018"
+    },
+    {
+      "highlights": [
+        "Worked heavily in Python using web scraping and various APIs to amass datasets for ML & NLP",
+        "Used Markov chains and TensorFlow to create simple text generating models"
+      ],
+      "company": "Zenabi Data",
+      "position": "Software Engineering Intern",
+      "location": "Westport, CT",
+      "startDate": "May 2018",
+      "endDate": "Jun 2018"
+    }
+  ],
+  "skills": [{
+      "name": "Languages",
+      "level": "",
+      "keywords": [
+        "JavaScript/TypeScript",
+        "Python",
+        "Ruby",
+        "C++",
+        "Java",
+        "C",
+        "SystemVerilog"
+      ]
+    },
+    {
+      "keywords": [
+        "Express.js",
+        "Angular",
+        "Socket.io",
+        "TensorFlow.js",
+        "Puppeteer"
+      ],
+      "name": "Frameworks/Libraries"
+    },
+    {
+      "keywords": [
+        "Node.js",
+        "Linux",
+        "Git",
+        "Github",
+        "Heroku",
+        "Firebase",
+        "Google Cloud Platform"
+      ],
+      "name": "Technologies"
+    }
+  ],
+  "projects": [{
+      "keywords": [
+        ""
+      ],
+      "name": "fast-img",
+      "description": "Website and additional Chrome extension, that leans on fast data center internet to dramatically increase image access speed, by serving scaled images based on URL (Express.js, Sharp, Heroku)",
+      "url": "github.com/braeden/fast-img"
+    },
+    {
+      "keywords": [
+        ""
+      ],
+      "name": "sms-sentiment",
+      "description": "(HackIllinois 2020) Full stack web application which parses uploaded SMS conversations and plots sentiment over time with TensorFlow.js or Google's Natural Language API (Express.js, TF.js, Chart.js)",
+      "url": "github.com/braeden/sms-sentiment"
+    },
+    {
+      "keywords": [
+        ""
+      ],
+      "description": "Gif-Decoder - A .GIF decoder written for the Cyclone IV FPGA for an ECE385 final project (C and SystemVerilog)",
+      "name": "Gif-Decoder",
+      "url": "github.com/braeden/ece385-gif-decoder"
+    },
+    {
+      "keywords": [
+        ""
+      ],
+      "description": "A minimal real-time drawing app -- generate words, create rooms, customize your brush -- live drawings are transmitted instantly to anyone with the same link (Express.js, WebSockets, WebRTC, TypeScript)",
+      "url": "github.com/braeden/pictionary",
+      "name": "Pictionary"
+    },
+    {
+      "name": "WebPixelMap",
+      "url": "github.com/tylermcdonald/webPixelMapper",
+      "keywords": [
+        null
+      ],
+      "description": "(HackIllinois 2019) - take an arbitrary video and display it across phones in stadiums & concerts -- using each connected device as a single pixel in mapped playback. (Python, Node.js, Socket.io, FFMPEG)"
+    }
+  ],
+  "awards": [{
+    "title": "",
+    "date": "",
+    "awarder": "",
+    "summary": ""
+  }],
+  "sections": [
+    "templates",
+    "profile",
+    "education",
+    "work",
+    "skills",
+    "projects",
+    "awards"
+  ]
+}
