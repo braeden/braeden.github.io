@@ -4,7 +4,7 @@ document.getElementById('emoji').innerText = emojis[Math.floor(Math.random() * e
 // Easter Egg :)
 document.getElementById('emoji').addEventListener('copy', () => {
     const unit = 200;
-    window.navigator.vibrate('-... .-. .- . -.. . -.'.split('').reduce((a, e) => {
+    const pattern = '-... .-. .- . -.. . -.'.split('').reduce((a, e) => {
         switch (e) {
             case '.':
                 a.push(unit, unit);
@@ -13,14 +13,16 @@ document.getElementById('emoji').addEventListener('copy', () => {
                 a.push(3 * unit, unit);
                 break;
             case ' ':
-                a.push(0, 3 * unit);
+                a[a.length - 1] += 3 * unit
                 break;
             case '|':
-                a.push(0, 7 * unit);
+                a[a.length - 1] += 7 * unit
                 break;
         }
         return a
-    }, []));
+    }, []);
+    console.log(window.navigator.vibrate(pattern));
+    console.log(pattern)
 })
 
 particlesJS("particles-js", {

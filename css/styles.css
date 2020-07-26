@@ -134,11 +134,10 @@ a:hover:after {
 }
 
 #p-footer {
-    line-height: 1.2;
     padding-left: 1em;
     padding-right: 1em;
     max-width: none;
-    margin: .8em;
+    margin: .5em;
 }
 
 #footer-pad {
