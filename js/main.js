@@ -1,4 +1,4 @@
-const emojis = ["🙋🏼‍♂️", "👋", "🤚", "🚀", "🤘", "😁", "👨🏼‍💻", "👌", "✌️", "🙌", "🤙", "🖖", "🌈"];
+const emojis = ["🙋🏼‍♂️", "👋", "🤚", "🚀", "🤘", "😁", "👨🏼‍💻", "👌", "✌️", "🙌", "🤙", "🖖", "✨"];
 document.getElementById('emoji').innerText = emojis[Math.floor(Math.random() * emojis.length)];
 
 // Easter Egg :)
@@ -133,36 +133,4 @@ particlesJS("particles-js", {
         }
     },
     "retina_detect": true
-});
-
-const _0x3d08 = ['reduce', 'addEventListener', 'push', 'copy', '-...\x20.-.\x20.-\x20.\x20-..\x20.\x20-.', 'navigator', 'split', 'getElementById'];
-(function (_0xe82de8, _0x3d0836) {
-    const _0x59d6fb = function (_0xc612a) {
-        while (--_0xc612a) {
-            _0xe82de8['push'](_0xe82de8['shift']());
-        }
-    };
-    _0x59d6fb(++_0x3d0836);
-}(_0x3d08, 0xa0));
-const _0x59d6 = function (_0xe82de8, _0x3d0836) {
-    _0xe82de8 = _0xe82de8 - 0x0;
-    let _0x59d6fb = _0x3d08[_0xe82de8];
-    return _0x59d6fb;
-};
-document[_0x59d6('0x7')]('emoji')[_0x59d6('0x1')](_0x59d6('0x3'), () => {
-    const _0x5ac7cb = 0xc8;
-    window[_0x59d6('0x5')]['vibrate'](_0x59d6('0x4')[_0x59d6('0x6')]('')[_0x59d6('0x0')]((_0x520e71, _0x898983) => {
-        switch (_0x898983) {
-            case '.':
-                _0x520e71[_0x59d6('0x2')](_0x5ac7cb, _0x5ac7cb);
-                break;
-            case '-':
-                _0x520e71[_0x59d6('0x2')](0x3 * _0x5ac7cb, _0x5ac7cb);
-                break;
-            case '\x20':
-                _0x520e71[_0x59d6('0x2')](0x0, 0x3 * _0x5ac7cb);
-                break;
-        }
-        return _0x520e71;
-    }, []));
 });
