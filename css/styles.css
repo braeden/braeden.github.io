@@ -7,7 +7,7 @@
     --secondary-background-color: #222;
 }
 
-path {
+.svg-container path {
     stroke: var(--primary-color);
     fill: #00000011;
 }
@@ -46,6 +46,39 @@ path {
     }
 }
 
+@keyframes layer2 {
+    0% {
+        transform: skewY(0deg);
+        transform: rotateY(0deg);
+        transform: rotate(0);
+    }
+    33% {
+        transform: skewX(.5deg);
+        transform: rotate(-.5deg);
+
+    }
+    66% {
+        /* transBraeden Smithform: rotateY(2deg); */
+        transform: skewX(-.5deg);
+        transform: rotate(.75deg);
+    }
+}
+
+#layer2 {
+    animation: layer2 10s linear infinite 
+}
+
+#planet {
+    transform: rotate(20deg);
+    position: absolute;
+    top: 1em;
+    overflow: hidden;
+    width: 100vw;
+    height: auto;
+    right: 3em;
+    margin: auto 0;
+    z-index: -1;
+}
 body {
     background-color: var(--background-color);
 }
@@ -64,7 +97,7 @@ body {
 
 body {
     font-family: 'Noto Sans JP', sans-serif;
-    line-height: 1.6;
+    line-height: 1.75;
     color: var(--text-color);
 }
 
