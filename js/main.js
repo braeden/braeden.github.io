@@ -1,136 +1,77 @@
-const emojis = ["🙋🏼‍♂️", "👋", "🤚", "🚀", "🤘", "😁", "👨🏼‍💻", "👌", "✌️", "🙌", "🤙", "🖖", "✨"];
-document.getElementById('emoji').innerText = emojis[Math.floor(Math.random() * emojis.length)];
-
-// Easter Egg :)
-document.getElementById('emoji').addEventListener('copy', () => {
-    const unit = 200;
-    const pattern = '-... .-. .- . -.. . -.'.split('').reduce((a, e) => {
-        switch (e) {
-            case '.':
-                a.push(unit, unit);
-                break;
-            case '-':
-                a.push(3 * unit, unit);
-                break;
-            case ' ':
-                a[a.length - 1] += 3 * unit
-                break;
-            case '|':
-                a[a.length - 1] += 7 * unit
-                break;
-        }
-        return a
-    }, []);
-    console.log(window.navigator.vibrate(pattern));
-    console.log(pattern)
+const strings = ['Windows Tour']
+const ratio = 9 / 1.5
+const height = 30
+const l = [...document.getElementsByTagName('canvas')]
+l.forEach((elem, i) => {
+    const ctx = elem.getContext('2d');
+    ctx.imageSmoothingEnabled = false
+    elem.width = height * ratio
+    elem.height = height;
+    ctx.font = '20px Source Sans Pro';
+    ctx.fillStyle = 'black';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle'
+    ctx.fillText(strings[i] || 'Default', elem.width / 2 + .1, elem.height / 2)
 })
 
-particlesJS("particles-js", {
-    "particles": {
-        "number": {
-            "value": 500,
-            "density": {
-                "enable": true,
-                "value_area": 5000
-            }
-        },
-        "color": {
-            "value": "#eee"
-        },
-        "shape": {
-            "type": "polygon",
-            "stroke": {
-                "width": 0,
-                "color": "#000000"
-            },
-            "polygon": {
-                "nb_sides": 4
-            },
-            "image": {
-                "src": "img/github.svg",
-                "width": 100,
-                "height": 100
-            }
-        },
-        "opacity": {
-            "value": 0.5,
-            "random": false,
-            "anim": {
-                "enable": true,
-                "speed": 0.2,
-                "opacity_min": 0,
-                "sync": false
-            }
-        },
-        "size": {
-            "value": 2,
-            "random": true,
-            "anim": {
-                "enable": true,
-                "speed": 2,
-                "size_min": 0,
-                "sync": false
-            }
-        },
-        "line_linked": {
-            "enable": false,
-            "distance": 100,
-            "color": "#999",
-            "opacity": 0.05,
-            "width": 1
-        },
-        "move": {
-            "enable": true,
-            "speed": 1,
-            "direction": "none",
-            "random": true,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-            "attract": {
-                "enable": false,
-                "rotateX": 600,
-                "rotateY": 1200
-            }
+
+
+const buttons = [...document.getElementsByClassName('button')]
+buttons.forEach(elem => {
+    elem.addEventListener('mousedown', () => elem.classList.add('inset'))
+    elem.addEventListener('mouseup', () => elem.classList.remove('inset'))
+});
+
+
+let [dx, dy] = [0, 0];
+let moveEnabled = false;
+const dpi = window.devicePixelRatio || 1;
+['mousedown', 'touchstart'].forEach(event => {
+    document.getElementById('menubar').addEventListener(event, (e) => {
+        e.preventDefault();
+
+        let tempX, tempY
+        if (e instanceof TouchEvent) {
+            tempX = e.touches[0].pageX
+            tempY = e.touches[0].pageY
+        } else {
+            tempX = e.clientX;
+            tempY = e.clientY;
         }
-    },
-    "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-            "onhover": {
-                "enable": true,
-                "mode": "bubble"
-            },
-            "onclick": {
-                "enable": false,
-            },
-            "resize": true
-        },
-        "modes": {
-            "grab": {
-                "distance": 400,
-                "line_linked": {
-                    "opacity": 1
-                }
-            },
-            "bubble": {
-                "distance": 83.91608391608392,
-                "size": 1,
-                "duration": 3,
-                "opacity": 1,
-                "speed": 3
-            },
-            "repulse": {
-                "distance": 200,
-                "duration": 0.4
-            },
-            "push": {
-                "particles_nb": 4
-            },
-            "remove": {
-                "particles_nb": 2
-            }
+        const mainWindow = document.getElementById('main-window')
+        dx = tempX * dpi - parseInt(getComputedStyle(mainWindow).left || 0)
+        dy = tempY * dpi - parseInt(getComputedStyle(mainWindow).top || 0)
+        moveEnabled = true;
+        mainWindow.style.margin = "0";
+        mainWindow.style.cursor = "grabbing"
+    })
+});
+
+['mousemove', 'touchmove'].forEach(event => {
+    window.addEventListener(event, (e) => {
+        if (!moveEnabled)
+            return;
+        e.preventDefault();
+
+        let tempX, tempY
+        if (e instanceof TouchEvent) {
+            tempX = e.touches[0].pageX
+            tempY = e.touches[0].pageY
+        } else {
+            tempX = e.clientX;
+            tempY = e.clientY;
         }
-    },
-    "retina_detect": true
+        const mainWindow = document.getElementById('main-window')
+        mainWindow.style.left = `${tempX * dpi - dx}px`
+        mainWindow.style.top = `${tempY * dpi - dy}px`
+    });
+});
+
+['mouseup', 'touchstop'].forEach(event => {
+    window.addEventListener(event, (e) => {
+        moveEnabled = false;
+        const mainWindow = document.getElementById('main-window')
+        mainWindow.style.cursor = ""
+
+    });
 });
