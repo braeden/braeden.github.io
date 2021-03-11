@@ -66,8 +66,8 @@ hr {
     left: 0; 
     right: 0;
     top: 5%;
-    /* margin-left: auto; 
-    margin-right: auto;  */
+    margin-left: auto; 
+    margin-right: auto; 
 }
 
 #menubar {
@@ -115,6 +115,21 @@ hr {
     position: absolute;
     margin: .2em 0 0 .2em;
     transform: translateY(-1.73em);
+}
+
+#text-header {
+    position: absolute;
+    transform: translateY(-3.5em) translateX(5.5em);
+    font-weight: bold;
+}
+
+#main-text {
+    position: absolute;
+    transform: translateY(-.5em) translateX(5em);
+    width: 20em;
+    word-wrap: break-word;
+    font-size: 1.1em;
+    line-height: 1.3em;
 }
 
 .checkbox-prompt {
@@ -165,7 +180,7 @@ hr {
     box-shadow: none;
 }
 
-.button:hover {
+.button:active {
     cursor: pointer;
 }
 
