@@ -1,7 +1,7 @@
 const buttons = [...document.getElementsByClassName('button')]
 buttons.forEach(elem => {
-    elem.addEventListener('mousedown', () => elem.classList.add('inset'))
-    elem.addEventListener('mouseup', () => elem.classList.remove('inset'))
+    ['mousedown', 'touchstart'].forEach(e => elem.addEventListener(e, () => elem.classList.add('inset')));
+    ['mouseup', 'touchstop'].forEach(e => elem.addEventListener(e, () => elem.classList.remove('inset')));
 });
 
 
@@ -24,7 +24,7 @@ const dpi = 1 || window.devicePixelRatio;
         dx = tempX * dpi - mainWindow.getBoundingClientRect().left || 0
         dy = tempY * dpi - mainWindow.getBoundingClientRect().top || 0
         moveEnabled = true;
-        mainWindow.style.cursor = "grabbing"
+        mainWindow.style.cursor = 'grabbing'
     })
 });
 
@@ -49,11 +49,14 @@ const dpi = 1 || window.devicePixelRatio;
     }, { passive: false });
 });
 
-['mouseup', 'touchstop'].forEach(event => {
+['mouseup', 'touchend', 'touchcancel'].forEach(event => {
     window.addEventListener(event, (e) => {
         moveEnabled = false;
         const mainWindow = document.getElementById('main-window')
-        mainWindow.style.cursor = ""
-
+        mainWindow.style.cursor = ''
     }, { passive: false });
 });
+
+window.addEventListener('resize', () => location.reload());
+
+// window.addEventListener('pointermove', () => console.log('moved'))
