@@ -28,17 +28,11 @@ svg {
     top: 0;
 }
 
-img {
+img, label {
     user-select: none;
 }
 
 a {
-    color: inherit;
-    text-decoration: inherit;
-}
-
-a:visited {
-    color: inherit;
     text-decoration: inherit;
 }
 
@@ -46,6 +40,7 @@ hr {
     width: 9em;
     margin: 0 auto 1em auto;
 }
+
 .button-x p {
     /* This is a a whole mess, figure out how to do this better */
     transform: translateY(-40%);
@@ -63,11 +58,11 @@ hr {
     width: 50em;
     height: 30em;
     overflow: hidden;
-    left: 0; 
+    left: 0;
     right: 0;
     top: 5%;
-    margin-left: auto; 
-    margin-right: auto; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #menubar {
@@ -81,7 +76,6 @@ hr {
     vertical-align: middle;
     user-select: none;
 }
-
 
 .welcome-to {
     grid-column: 2/2;
@@ -126,10 +120,10 @@ hr {
 #main-text {
     position: absolute;
     transform: translateY(-.5em) translateX(5em);
-    width: 20em;
+    width: 25em;
     word-wrap: break-word;
     font-size: 1.1em;
-    line-height: 1.3em;
+    line-height: 1.5em;
 }
 
 .checkbox-prompt {
@@ -173,6 +167,11 @@ hr {
     box-shadow: 1px 1px 0px 1px black;
 }
 
+.outset-selected {
+    /* border-color: white var(--secondary-gray) var(--secondary-gray) white; */
+    box-shadow: 1px 1px 0px 1px black, 0px -1px 0px 1px black, -1px 0px 0px 1px black;
+}
+
 .inset {
     border-width: 2px;
     border-style: inset;
@@ -182,23 +181,4 @@ hr {
 
 .button:active {
     cursor: pointer;
-}
-
-.text-canvas {
-    display: inline-block;
-    /* border-color: red;
-    border-style: solid; */
-    width: inherit;
-    height: inherit;
-    image-rendering: optimizeSpeed;
-    /* Older versions of FF          */
-    image-rendering: -moz-crisp-edges;
-    /* FF 6.0+                       */
-    image-rendering: -webkit-optimize-contrast;
-    /* Safari                        */
-    image-rendering: -o-crisp-edges;
-    /* OS X & Windows Opera (12.02+) */
-    image-rendering: pixelated;
-    /* Awesome future-browsers       */
-    -ms-interpolation-mode: nearest-neighbor;
 }

@@ -1,9 +1,19 @@
 const buttons = [...document.getElementsByClassName('button')]
 buttons.forEach(elem => {
     ['mousedown', 'touchstart'].forEach(e => elem.addEventListener(e, () => elem.classList.add('inset')));
-    ['mouseup', 'touchstop'].forEach(e => elem.addEventListener(e, () => elem.classList.remove('inset')));
+    ['mouseup', 'touchend', 'dragend'].forEach(e => elem.addEventListener(e, () => elem.classList.remove('inset')));
 });
 
+const underlines = [...document.getElementsByTagName('u')]
+underlines.forEach(elem => {
+    document.addEventListener('keydown', e => {
+        console.log(elem.parentElement)
+        if (e.key.toUpperCase() === elem.innerText) {
+            elem.parentElement.click()
+        }
+    })
+    // console.log(e.innerText, e.parentElement)
+});
 
 let [dx, dy] = [0, 0];
 let moveEnabled = false;
@@ -59,4 +69,3 @@ const dpi = 1 || window.devicePixelRatio;
 
 window.addEventListener('resize', () => location.reload());
 
-// window.addEventListener('pointermove', () => console.log('moved'))
