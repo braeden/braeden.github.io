@@ -1,178 +1,204 @@
 :root {
-    --primary-color: #ff7aab;
-    --link-color: #17BEBB;
-    --link-color-opacity: #17BEBB80;
-    --text-color: #e4e4e4;
-    --background-color: #111;
-    --secondary-background-color: #222;
+    --background-color: #C0C0C0;
+    --menu-bar: #000080;
+    --text-background: #FFFF00;
+    --text-color: #000;
+    --secondary-background-color: #008080;
+    --secondary-gray: #80808080;
 }
 
-.svg-container path {
-    stroke: var(--primary-color);
-    fill: #00000011;
-}
-
-.traced-name {
-    stroke-dasharray: 3611 3613;
-    stroke-dashoffset: 3612;
-    animation: traced_draw_0 30300ms ease 0ms infinite, traced_fade 30300ms linear 0ms infinite;
-}
-
-@keyframes traced_fade {
-    0% {
-        stroke-opacity: 1;
-    }
-
-    99.00990099009901% {
-        stroke-opacity: 1;
-    }
-
-    100% {
-        stroke-opacity: 0;
-    }
-}
-
-@keyframes traced_draw_0 {
-    0% {
-        stroke-dashoffset: 3612;
-    }
-
-    99.00990099009901% {
-        stroke-dashoffset: 100;
-    }
-
-    100% {
-        stroke-dashoffset: 0;
-    }
-}
-
-@keyframes layer2 {
-    0% {
-        transform: skewY(0deg);
-        transform: rotateY(0deg);
-        transform: rotate(0);
-    }
-    33% {
-        transform: skewX(.5deg);
-        transform: rotate(-.5deg);
-
-    }
-    66% {
-        /* transBraeden Smithform: rotateY(2deg); */
-        transform: skewX(-.5deg);
-        transform: rotate(.75deg);
-    }
-}
-
-#layer2 {
-    animation: layer2 10s linear infinite 
-}
-
-#planet {
-    transform: rotate(20deg);
-    position: absolute;
-    top: 1em;
-    overflow: hidden;
-    width: 100vw;
-    height: auto;
-    right: 3em;
-    margin: auto 0;
-    z-index: -1;
-}
-body {
-    background-color: var(--background-color);
-}
-
-.svg-container {
-    margin-left: 0px;
-    position: relative;
-    width: 29em;
-    padding-top: 1em;
-    padding-left: 1.5em;
-    max-width: 85vw;
-    min-width: 30vw;
-    padding-bottom: 0em;
+html, body {
     overflow: hidden;
 }
 
 body {
-    font-family: 'Noto Sans JP', sans-serif;
-    line-height: 1.75;
-    color: var(--text-color);
+    font-family: 'Catamaran', sans-serif;
+    background-color: var(--secondary-background-color);
 }
 
 p {
-    font-size: calc(18px + (30 - 18) * ((100vw - 300px) / (2400 - 300)));
-    padding-left: 1em;
-    padding-right: 1em;
-    max-width: 50em;
-    overflow: hidden;
+    position: relative;
+    padding-left: .15em;
+    margin: 0;
 }
 
-#particles-js {
-    width: 100%;
-    height: 100%;
-    z-index: -99;
+svg {
+    position: absolute;
+    left: 0;
     top: 0;
-    left: 0;
-    position: fixed;
 }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background-color: var(--secondary-background-color);
-    opacity: 95%;
+img {
+    user-select: none;
 }
 
 a {
-    text-decoration: none;
-    position: relative;
-    color: var(--text-color);
+    color: inherit;
+    text-decoration: inherit;
 }
 
-/* https://evanyou.me/ */
-p a:after {
-    content: "";
+a:visited {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+hr {
+    width: 9em;
+    margin: 0 auto 1em auto;
+}
+.button-x p {
+    /* This is a a whole mess, figure out how to do this better */
+    transform: translateY(-40%);
+    font-family: monospace;
+    padding-left: .075em;
+    font-size: 1.5em;
+}
+
+.container {
     position: absolute;
-    z-index: -1;
-    top: 60%;
-    left: -0.1em;
-    right: -0.1em;
-    bottom: 0;
-    transition: top 200ms cubic-bezier(0, .8, .13, 1);
-    background-color: var(--link-color-opacity);
+    display: grid;
+    grid-template-columns: 1.75em 3fr 1fr;
+    grid-template-rows: 1.5em 4em 1fr 4em;
+    background-color: var(--background-color);
+    width: 45em;
+    height: 25em;
+    overflow: hidden;
+    left: 0; 
+    right: 0;
+    top: 5%;
+    margin-left: auto; 
+    margin-right: auto; 
 }
 
-a:hover:after {
-    top: 0%;
+#menubar {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--menu-bar);
+    grid-column: 1/5;
+    grid-row: 1/1;
+    color: white;
+    font-weight: bold;
+    vertical-align: middle;
+    user-select: none;
 }
 
 
-.footer a {
-    color: var(--link-color);
-    text-decoration: none;
+.welcome-to {
+    grid-column: 2/2;
+    grid-row: 2/2;
+}
+
+.did-know {
     position: relative;
+    grid-column: 2/2;
+    grid-row: 3/3;
+    background-color: white;
 }
 
-.footer a:hover {
-    text-decoration: underline;
+#lightbulb {
+    width: 2.5em;
+    filter: drop-shadow(0 5px 0 var(--secondary-gray));
+    margin: 1em 1.5em;
 }
 
-.footer a:after {
-    background-color: #00000000;
+#welcome {
+    margin-top: 1em;
+    width: 30em;
 }
 
-#p-footer {
-    padding-left: 1em;
-    padding-right: 1em;
-    max-width: none;
-    margin: .5em;
+#dotted {
+    /* Another absolute mess, to do: figure out how CSS works */
+    border-style: dotted;
+    border-width: 1px;
+    width: 8.5em;
+    height: 1.2em;
+    position: absolute;
+    margin: .2em 0 0 .2em;
+    transform: translateY(-1.73em);
 }
 
-#footer-pad {
-    height: 3em;
+#text-header {
+    position: absolute;
+    transform: translateY(-3.5em) translateX(5.5em);
+    font-weight: bold;
+}
+
+#main-text {
+    position: absolute;
+    transform: translateY(-.5em) translateX(5em);
+    width: 20em;
+    word-wrap: break-word;
+    font-size: 1.1em;
+    line-height: 1.3em;
+}
+
+.checkbox-prompt {
+    align-self: center;
+    grid-column: 2/2;
+    grid-row: 4/4;
+}
+
+.close-section {
+    grid-column: 3/3;
+    grid-row: 4/4;
+}
+
+.buttons {
+    grid-column: 3/3;
+    grid-row: 3/3;
+}
+
+.button {
+    user-select: none;
+    color: black;
+    display: inherit;
+    width: 9em;
+    height: 1.5em;
+    text-align: center;
+    background-color: var(--background-color);
+    margin: auto;
+    margin-bottom: .75em;
+}
+
+.button-x {
+    width: .9em;
+    height: .9em;
+    margin: .15em .2em 0 0;
+}
+
+.outset {
+    border-width: 2px;
+    border-style: outset;
+    border-color: white var(--secondary-gray) var(--secondary-gray) white;
+    box-shadow: 1px 1px 0px 1px black;
+}
+
+.inset {
+    border-width: 2px;
+    border-style: inset;
+    border-color: var(--secondary-gray) white white var(--secondary-gray);
+    box-shadow: none;
+}
+
+.button:active {
+    cursor: pointer;
+}
+
+.text-canvas {
+    display: inline-block;
+    /* border-color: red;
+    border-style: solid; */
+    width: inherit;
+    height: inherit;
+    image-rendering: optimizeSpeed;
+    /* Older versions of FF          */
+    image-rendering: -moz-crisp-edges;
+    /* FF 6.0+                       */
+    image-rendering: -webkit-optimize-contrast;
+    /* Safari                        */
+    image-rendering: -o-crisp-edges;
+    /* OS X & Windows Opera (12.02+) */
+    image-rendering: pixelated;
+    /* Awesome future-browsers       */
+    -ms-interpolation-mode: nearest-neighbor;
 }
