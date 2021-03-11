@@ -102,13 +102,12 @@ hr {
 
 #dotted {
     /* Another absolute mess, to do: figure out how CSS works */
+    position: absolute;
     border-style: dotted;
     border-width: 1px;
-    width: 8.5em;
+    width: 8.6em;
     height: 1.2em;
-    position: absolute;
-    margin: .2em 0 0 .2em;
-    transform: translateY(-1.73em);
+    transform: translateY(-1.5em) translateX(.12em);
 }
 
 #text-header {

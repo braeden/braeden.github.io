@@ -7,12 +7,9 @@ buttons.forEach(elem => {
 const underlines = [...document.getElementsByTagName('u')]
 underlines.forEach(elem => {
     document.addEventListener('keydown', e => {
-        console.log(elem.parentElement)
-        if (e.key.toUpperCase() === elem.innerText) {
+        if (e.key.toUpperCase() === elem.innerText)
             elem.parentElement.click()
-        }
     })
-    // console.log(e.innerText, e.parentElement)
 });
 
 let [dx, dy] = [0, 0];
