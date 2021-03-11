@@ -60,8 +60,8 @@ hr {
     grid-template-columns: 1.75em 3fr 1fr;
     grid-template-rows: 1.5em 4em 1fr 4em;
     background-color: var(--background-color);
-    width: 45em;
-    height: 25em;
+    width: 50em;
+    height: 30em;
     overflow: hidden;
     left: 0; 
     right: 0;
