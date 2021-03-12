@@ -18,7 +18,7 @@ body {
 
 p {
     position: relative;
-    padding-left: .15em;
+    padding-left: .2em;
     margin: 0;
 }
 
@@ -30,6 +30,10 @@ svg {
 
 img, label {
     user-select: none;
+}
+
+label {
+    font-size: 1em;
 }
 
 a {
@@ -107,7 +111,7 @@ hr {
     border-width: 1px;
     width: 8.6em;
     height: 1.2em;
-    transform: translateY(-1.5em) translateX(.12em);
+    transform: translateY(-115%) translateX(1.25%);
 }
 
 #text-header {
@@ -119,7 +123,7 @@ hr {
 #main-text {
     position: absolute;
     transform: translateY(-.5em) translateX(5em);
-    width: 25em;
+    width: 26em;
     word-wrap: break-word;
     font-size: 1.1em;
     line-height: 1.5em;
