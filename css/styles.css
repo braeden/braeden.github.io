@@ -1,191 +1,120 @@
 :root {
-    --background-color: #C0C0C0;
-    --menu-bar: #000080;
-    --text-background: #FFFF00;
+    --background-color: #2a2939;
+    /* --main-blue: #03fefc; */
+    /* --main-pink: #fd547f; */
+    --main-blue: #add8e660;
+    --main-pink: #f0808060;
+    --main-yellow: #ffeb3b;
+    --link-color: lightcoral;
+    --link-color-opacity: #17BEBB80;
     --text-color: #000;
-    --secondary-background-color: #008080;
-    --secondary-gray: #80808080;
+    --secondary-background-color: #201f2b;
 }
 
-html, body {
-    overflow: hidden;
+html {
+    height: 100%;
 }
 
 body {
-    font-family: 'Catamaran', sans-serif;
-    background-color: var(--secondary-background-color);
-}
-
-p {
-    position: relative;
-    padding-left: .2em;
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--background-color);
+    /* background: linear-gradient(0deg, rgba(31, 0, 16, 1) 0%, rgba(11, 0, 50, 1) 50%); */
+    height: 100%;
     margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text-color)
 }
 
-svg {
+
+@keyframes pulse {
+    from {
+        opacity: 1;
+        box-shadow: 0 0 1em 0em var(--main-pink);
+    }
+    to {
+        opacity: 0;
+        box-shadow: 0 0 100px 50px var(--main-blue);
+    }
+}
+
+#glow {
+    width: 0;
+    height: 0;
+    border-radius: 50%;
     position: absolute;
-    left: 0;
-    top: 0;
+    transition: opacity .5s ease-in-out;
+    animation-name: pulse;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-timing-function: ease-in-out;
 }
 
-img, label {
-    user-select: none;
-}
 
-label {
-    font-size: 1em;
-}
-
-a {
-    text-decoration: inherit;
-}
-
-hr {
-    width: 9em;
-    margin: 0 auto 1em auto;
-}
-
-.button-x p {
-    /* This is a a whole mess, figure out how to do this better */
-    font-family: monospace;
-    padding-left: 0em;
-    font-size: 1.5em;
-}
-
-.container {
+.layer {
+    width: 18em;
+    height: 9em;
+    /* background-color: var(--main-pink); */
     position: absolute;
-    display: grid;
-    grid-template-columns: 1.75em 3fr 1fr;
-    grid-template-rows: 1.5em 4em 1fr 4em;
-    background-color: var(--background-color);
-    width: 50em;
-    height: 30em;
-    overflow: hidden;
-    left: 0;
-    right: 0;
-    top: 5%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#menubar {
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--menu-bar);
-    grid-column: 1/5;
-    grid-row: 1/1;
-    color: white;
-    font-weight: bold;
-    vertical-align: middle;
-    user-select: none;
-}
-
-.welcome-to {
-    grid-column: 2/2;
-    grid-row: 2/2;
-}
-
-.did-know {
-    position: relative;
-    grid-column: 2/2;
-    grid-row: 3/3;
-    background-color: white;
-}
-
-#lightbulb {
-    width: 2.5em;
-    filter: drop-shadow(0 5px 0 var(--secondary-gray));
-    margin: 1em 1.5em;
-}
-
-#welcome {
-    margin-top: 1em;
-    width: 30em;
-}
-
-#dotted {
-    /* Another absolute mess, to do: figure out how CSS works */
-    /* position: absolute; */
-    border-style: dotted;
-    border-width: 1px;
-    width: 8.65em;
-    height: 1.3em;
-    display: flex;
-    justify-content: center;
-    transform: translateY(-3%);
-}
-
-#text-header {
-    position: absolute;
-    transform: translateY(-3.5em) translateX(5.5em);
-    font-weight: bold;
-}
-
-#main-text {
-    position: absolute;
-    transform: translateY(-.5em) translateX(5em);
-    width: 26em;
-    word-wrap: break-word;
-    font-size: 1.1em;
-    line-height: 1.5em;
-}
-
-.checkbox-prompt {
-    align-self: center;
-    grid-column: 2/2;
-    grid-row: 4/4;
-}
-
-.close-section {
-    grid-column: 3/3;
-    grid-row: 4/4;
-}
-
-.buttons {
-    grid-column: 3/3;
-    grid-row: 3/3;
-}
-
-.button {
-    user-select: none;
-    color: black;
-    display: inherit;
-    width: 9em;
-    height: 1.5em;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    background-color: var(--background-color);
-    margin: auto;
-    margin-bottom: .75em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 1em;
 }
 
-.button-x {
-    width: .9em;
-    height: .9em;
-    margin: .15em .2em 0 0;
+#top {
+    background-color:#ffeb3b30;
+    color:white;
+    z-index: 100;
 }
 
-.outset {
-    border-width: 2px;
-    border-style: outset;
-    border-color: white var(--secondary-gray) var(--secondary-gray) white;
-    box-shadow: 1px 1px 0px 1px black;
+#mid {
+    background-color: var(--main-pink);
+    margin: .75em 0 0 -.75em;
+    z-index: 1;
 }
 
-.outset-selected {
-    /* border-color: white var(--secondary-gray) var(--secondary-gray) white; */
-    box-shadow: 1px 1px 0px 1px black, 0px -1px 0px 1px black, -1px 0px 0px 1px black;
+#low {
+    margin: -.75em 0 0 .75em;
+    background-color: var(--main-blue);
+    z-index: 0;
 }
 
-.inset {
-    border-width: 2px;
-    border-style: inset;
-    border-color: var(--secondary-gray) white white var(--secondary-gray);
-    box-shadow: none;
+h1 {
+    text-shadow: -1px 1px 2px #000 ;
 }
 
-.button:active {
-    cursor: pointer;
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: var(--secondary-background-color);
+    opacity: 95%;
+}
+
+
+.footer a {
+    color: var(--link-color);
+    text-decoration: none;
+    position: relative;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer a:after {
+    background-color: #00000000;
+}
+
+#p-footer {
+    padding-left: 1em;
+    padding-right: 1em;
+    max-width: none;
+    margin: 1em;
+    color: #fff;
 }
