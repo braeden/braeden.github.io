@@ -45,7 +45,8 @@ document.getElementById('emoji').addEventListener('copy', () => {
     }, []);
     console.log(window.navigator.vibrate(pattern));
     console.log(pattern)
-})
+});
+window.onresize = () => { location.reload() }
 
 const c = document.getElementById('canvas')
 const ctx = c.getContext('2d')
@@ -57,15 +58,14 @@ canvas.width = c.clientWidth * dpi * scale;
 canvas.height = c.clientHeight * dpi * scale;
 let currentFrame = new Array(canvas.width * canvas.height).fill(0).map(() => !!(Math.random() < 0.3))
 let nextFrame = [...currentFrame]
-console.log(canvas.width, canvas.height)
 setInterval(() => {
     const canvasData = ctx.createImageData(canvas.width, canvas.height)
     currentFrame.forEach((e, i) => {
         // mix the two frames at this point
-        const weight = frame/interpolate;
+        const weight = frame / interpolate;
         for (let j = 0; j < 3; j++)
-            canvasData.data[i * 4 + j] = 255*(e+nextFrame[i] == 1 ? e*(1-weight) + nextFrame[i]*weight : e)
-            // if the colors are switching between frames, weight the two values and cross-fade
+            canvasData.data[i * 4 + j] = 255 * (e + nextFrame[i] == 1 ? e * (1 - weight) + nextFrame[i] * weight : e)
+        // if the colors are switching between frames, weight the two values and cross-fade
         canvasData.data[i * 4 + 3] = 20;
     })
     frame = (frame + 1) % interpolate;
@@ -86,4 +86,4 @@ setInterval(() => {
         }
         return sum == 3 ? 1 : sum == 4 ? e : 0
     })
-}, 100)
+}, 100);
