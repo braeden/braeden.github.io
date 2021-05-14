@@ -2,90 +2,53 @@
 <html lang="en">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=.5">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
     content="Braeden Smith - About Me. Computer Engineering student at University of Illinois at Urbana Champaign.">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
   <title>Braeden Smith | About Me</title>
 </head>
 
 <body id="body">
 
-  <div id="main-window" class="container outset">
-    <div id="menubar">
-      <p>Welcome</p>
-      <div class="button button-x outset">
-        <p>x</p>
-      </div>
-    </div>
-    <div class="welcome-to">
-      <img id="welcome" src="img/welcome.png">
+  <div id="glow"></div>
+
+  <span id="name"></span>
+
+  <div>
+    <div id="top" class="layer">
+      <h1>Braeden Smith</h1>
+      <p>Hi <span id="emoji"></span>! I'm a SWE Intern @ Microsoft.</p>
+      <!-- <p>Seeking fulltime positions for Dec 2021</p> -->
 
     </div>
-    <div class="did-know inset">
-      <svg width="100%" height="100%">
-        <defs>
-          <pattern id="dots" x="0" y="0" width="6" height="12" patternUnits="userSpaceOnUse">
-            <rect fill="#FFFF00" x="0" y="0" width="2" height="2">
-            </rect>
-          </pattern>
-        </defs>
-        <rect x="0" y="0" width="100%" height="100%" fill="url(#dots)"></rect>
-        <rect x="0" y="0" width="100%" height="100%" fill="url(#dots)" transform="translate(3,6)"></rect>
-      </svg>
-      <img id="lightbulb" src="img/lightbulb.png">
-      <p id="text-header">Did you know...</p>
-      <main>
-        <p id="main-text">Hi! I'm Braeden, a computer engineering student at UIUC.<br>I'll be
-          working as a SWE intern for Microsoft this summer!
-          <br>For more info, check out the links on the side ➜
-          <br>(also try dragging this window around)</p>
-      </main>
-    </div>
-    <div class="buttons">
-      <a class="button outset" href="Braeden-Smith-resume.pdf">
-        <u>R</u>esume</a>
-      </a>
-      <a class="button outset" href="https://github.com/braeden">
-        <u>G</u>ithub
-      </a>
-      <a class="button outset" href="https://www.linkedin.com/in/braeden-smith/">
-        <u>L</u>inkedIn
-      </a>
-      <a class="button outset" href="mailto:braedensmith2@gmail.com">
-        <u>E</u>mail Address
-      </a>
-      <a class="button outset" href="https://dev.to/braeden">
-        <u>B</u>log
-      </a>
-    </div>
-    <div class=checkbox-prompt>
-      <label><input type="checkbox" name="prompt" checked> <u>S</u>how this Welcome Screen next time you start
-        Windows</label </div>
-    </div>
-    <div class="close-section">
-      <hr>
-      <div class="button outset outset-selected">
-        <div id="dotted">
-          Close
-        </div>
-      </div>
-    </div>
+    <div id="mid" class="layer">
 
-    <script defer src="js/main.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71321949-3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
+    </div>
+    <div id="low" class="layer">
+    </div>
+  </div>
+  <canvas id="canvas"></canvas>
 
-      gtag('config', 'UA-71321949-3');
-    </script>
+  <div class="footer">
+    <p id="p-footer"><a href="resume">Resume</a> | <a href="https://github.com/braeden">Github</a> | <a
+        href="https://www.linkedin.com/in/braeden-smith/">LinkedIn</a> | <a
+        href="mailto:braedensmith2@gmail.com">Email</a> | <a href="https://dev.to/braeden">Blog</a>
+  </div>
+  <script defer src="js/main.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71321949-3"></script>
 
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-71321949-3');
+  </script>
 
 </body>
 

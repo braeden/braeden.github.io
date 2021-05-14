@@ -1,68 +1,89 @@
-const buttons = [...document.getElementsByClassName('button')]
-buttons.forEach(elem => {
-    ['mousedown', 'touchstart'].forEach(e => elem.addEventListener(e, () => elem.classList.add('inset')));
-    ['mouseup', 'touchend', 'dragend'].forEach(e => elem.addEventListener(e, () => elem.classList.remove('inset')));
+document.addEventListener('mousemove', (e) => {
+    const g = document.getElementById('glow');
+    g.style.left = `${e.clientX}px`;
+
+    g.style.top = `${e.clientY}px`;
+});
+document.addEventListener('touchmove', (e) => {
+    const g = document.getElementById('glow');
+    g.style.left = `${e.touches[0].pageX}px`;
+
+    g.style.top = `${e.touches[0].pageY}px`;
 });
 
-const underlines = [...document.getElementsByTagName('u')]
-underlines.forEach(elem => {
-    document.addEventListener('keydown', e => {
-        if (e.key.toUpperCase() === elem.innerText)
-            elem.parentElement.click()
-    })
-});
 
-let [dx, dy] = [0, 0];
-let moveEnabled = false;
-const dpi = 1 || window.devicePixelRatio;
-['mousedown', 'touchstart'].forEach(event => {
-    document.getElementById('menubar').addEventListener(event, (e) => {
-        e.preventDefault();
 
-        let tempX, tempY
-        if (e instanceof TouchEvent) {
-            tempX = e.touches[0].pageX
-            tempY = e.touches[0].pageY
-        } else {
-            tempX = e.clientX;
-            tempY = e.clientY;
+// document.addEventListener('mouseleave', () => {
+//     document.getElementById('glow').style.opacity = 0;
+// });
+// document.addEventListener('mouseenter', () => {
+//     document.getElementById('glow').style.opacity = 1;
+// })
+
+const emojis = ["🙋🏼‍♂️", "👋", "🤚", "🚀", "🤘", "😁", "👨🏼‍💻", "✌️", "🙌", "🤙", "🖖", "✨"];
+document.getElementById('emoji').innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+// Easter Egg :)
+document.getElementById('emoji').addEventListener('copy', () => {
+    const unit = 200;
+    const pattern = '-... .-. .- . -.. . -.'.split('').reduce((a, e) => {
+        switch (e) {
+            case '.':
+                a.push(unit, unit);
+                break;
+            case '-':
+                a.push(3 * unit, unit);
+                break;
+            case ' ':
+                a[a.length - 1] += 3 * unit
+                break;
+            case '|':
+                a[a.length - 1] += 7 * unit
+                break;
         }
-        const mainWindow = document.getElementById('main-window')
-        dx = tempX * dpi - mainWindow.getBoundingClientRect().left || 0
-        dy = tempY * dpi - mainWindow.getBoundingClientRect().top || 0
-        moveEnabled = true;
-        mainWindow.style.cursor = 'grabbing'
+        return a
+    }, []);
+    console.log(window.navigator.vibrate(pattern));
+    console.log(pattern)
+});
+window.onresize = () => { location.reload() }
+
+const c = document.getElementById('canvas')
+const ctx = c.getContext('2d')
+const dpi = window.devicePixelRatio || 1;
+const scale = .1
+const interpolate = 20 // number of "frames" to transition over (still steppy due to rounding I think)
+let frame = 0
+canvas.width = c.clientWidth * dpi * scale;
+canvas.height = c.clientHeight * dpi * scale;
+let currentFrame = new Array(canvas.width * canvas.height).fill(0).map(() => !!(Math.random() < 0.3))
+let nextFrame = [...currentFrame]
+setInterval(() => {
+    const canvasData = ctx.createImageData(canvas.width, canvas.height)
+    currentFrame.forEach((e, i) => {
+        // mix the two frames at this point
+        const weight = frame / interpolate;
+        for (let j = 0; j < 3; j++)
+            canvasData.data[i * 4 + j] = 255 * (e + nextFrame[i] == 1 ? e * (1 - weight) + nextFrame[i] * weight : e)
+        // if the colors are switching between frames, weight the two values and cross-fade
+        canvasData.data[i * 4 + 3] = 20;
     })
-});
+    frame = (frame + 1) % interpolate;
+    ctx.putImageData(canvasData, 0, 0);
 
-['mousemove', 'touchmove'].forEach(event => {
-    window.addEventListener(event, (e) => {
-        if (!moveEnabled)
-            return;
-        e.preventDefault();
-
-        let tempX, tempY
-        if (e instanceof TouchEvent) {
-            tempX = e.touches[0].pageX
-            tempY = e.touches[0].pageY
-        } else {
-            tempX = e.clientX;
-            tempY = e.clientY;
+    if (frame != 0)
+        return;
+    // map the next frame if we hit our interval
+    currentFrame = nextFrame
+    nextFrame = currentFrame.map((e, i) => {
+        let sum = 0
+        for (let x = -1; x <= 1; x++) {
+            for (let y = -1; y <= 1; y++) {
+                const idx = i + canvas.width * y + x
+                if (idx >= 0 && idx < currentFrame.length)
+                    sum += currentFrame[idx]
+            }
         }
-        const mainWindow = document.getElementById('main-window')
-        mainWindow.style.margin = "0";
-        mainWindow.style.left = `${tempX * dpi - dx}px`
-        mainWindow.style.top = `${tempY * dpi - dy}px`
-    }, { passive: false });
-});
-
-['mouseup', 'touchend', 'touchcancel'].forEach(event => {
-    window.addEventListener(event, (e) => {
-        moveEnabled = false;
-        const mainWindow = document.getElementById('main-window')
-        mainWindow.style.cursor = ''
-    }, { passive: false });
-});
-
-window.addEventListener('resize', () => location.reload());
-
+        return sum == 3 ? 1 : sum == 4 ? e : 0
+    })
+}, 100);
