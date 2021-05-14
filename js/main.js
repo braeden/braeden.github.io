@@ -20,7 +20,7 @@ document.addEventListener('touchmove', (e) => {
 //     document.getElementById('glow').style.opacity = 1;
 // })
 
-const emojis = ["🙋🏼‍♂️", "👋", "🤚", "🚀", "🤘", "😁", "👨🏼‍💻", "👌", "✌️", "🙌", "🤙", "🖖", "✨"];
+const emojis = ["🙋🏼‍♂️", "👋", "🤚", "🚀", "🤘", "😁", "👨🏼‍💻", "✌️", "🙌", "🤙", "🖖", "✨"];
 document.getElementById('emoji').innerText = emojis[Math.floor(Math.random() * emojis.length)];
 
 // Easter Egg :)
@@ -47,98 +47,35 @@ document.getElementById('emoji').addEventListener('copy', () => {
     console.log(pattern)
 })
 
-// particlesJS("particles-js", {
-//     "particles": {
-//         "number": {
-//             "value": 100,
-//             "density": {
-//                 "enable": true,
-//                 "value_area": 5000
-//             }
-//         },
-//         "color": {
-//             "value": "#eee"
-//         },
-//         "shape": {
-//             "type": "polygon",
-//             "stroke": {
-//                 "width": 0,
-//                 "color": "#000000"
-//             },
-//             "polygon": {
-//                 "nb_sides": 5
-//             }
-//         },
-//         "opacity": {
-//             "value": 0.5,
-//             "random": false,
-//             "anim": {
-//                 "enable": true,
-//                 "speed": 0.2,
-//                 "opacity_min": 0,
-//                 "sync": false
-//             }
-//         },
-//         "size": {
-//             "value": 2,
-//             "random": true,
-//             "anim": {
-//                 "enable": true,
-//                 "speed": 2,
-//                 "size_min": 0,
-//                 "sync": false
-//             }
-//         },
-//         "line_linked": {
-//             "enable": true,
-//             "distance": 100,
-//             "color": "#999",
-//             "opacity": 0.5,
-//             "width": 1
-//         },
-//         "move": {
-//             "enable": true,
-//             "speed": .5,
-//             "direction": "none",
-//             "random": true,
-//             "straight": false,
-//             "out_mode": "out",
-//             "bounce": false,
-//             "attract": {
-//                 "enable": false,
-//                 "rotateX": 600,
-//                 "rotateY": 1200
-//             }
-//         }
-//     },
-//     "interactivity": {
-//         "detect_on": "canvas",
-//         "events": {
-//             "resize": true
-//         }
-//     },
-//     "retina_detect": true
-// });
-
 const c = document.getElementById('canvas')
 const ctx = c.getContext('2d')
 const dpi = window.devicePixelRatio || 1;
 const scale = .1
-const interpolate = 30 // number of frames to transition over
+const interpolate = 20 // number of "frames" to transition over (still steppy due to rounding I think)
 let frame = 0
 canvas.width = c.clientWidth * dpi * scale;
 canvas.height = c.clientHeight * dpi * scale;
-let currentFrame = new Array(canvas.width * canvas.height).fill(0).map(() => Math.random() < 0.5 ? 0 : 1)
+let currentFrame = new Array(canvas.width * canvas.height).fill(0).map(() => !!(Math.random() < 0.3))
+let nextFrame = [...currentFrame]
+console.log(canvas.width, canvas.height)
 setInterval(() => {
     const canvasData = ctx.createImageData(canvas.width, canvas.height)
-    const nextFrame = currentFrame.map((e, i) => {
+    currentFrame.forEach((e, i) => {
+        // mix the two frames at this point
+        const weight = frame/interpolate;
         for (let j = 0; j < 3; j++)
-            canvasData.data[i * 4 + j] = e ? 50 * Math.abs(frame - interpolate / 2) / interpolate : 0
-        canvasData.data[i * 4 + 3] = 50;
+            canvasData.data[i * 4 + j] = 255*(e+nextFrame[i] == 1 ? e*(1-weight) + nextFrame[i]*weight : e)
+            // if the colors are switching between frames, weight the two values and cross-fade
+        canvasData.data[i * 4 + 3] = 20;
+    })
+    frame = (frame + 1) % interpolate;
+    ctx.putImageData(canvasData, 0, 0);
 
-        if (frame != interpolate/2)
-            return e;
-
+    if (frame != 0)
+        return;
+    // map the next frame if we hit our interval
+    currentFrame = nextFrame
+    nextFrame = currentFrame.map((e, i) => {
         let sum = 0
         for (let x = -1; x <= 1; x++) {
             for (let y = -1; y <= 1; y++) {
@@ -149,8 +86,4 @@ setInterval(() => {
         }
         return sum == 3 ? 1 : sum == 4 ? e : 0
     })
-
-    ctx.putImageData(canvasData, 0, 0);
-    currentFrame = nextFrame
-    frame = (frame + 1) % interpolate;
-}, 50)
+}, 100)
