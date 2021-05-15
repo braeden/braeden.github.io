@@ -52,7 +52,7 @@ const c = document.getElementById('canvas')
 const ctx = c.getContext('2d')
 const dpi = window.devicePixelRatio || 1;
 const scale = .1
-const interpolate = 20 // number of "frames" to transition over (still steppy due to rounding I think)
+const interpolate = 2 // number of "frames" to transition over (still steppy due to rounding I think)
 let frame = 0
 canvas.width = c.clientWidth * dpi * scale;
 canvas.height = c.clientHeight * dpi * scale;
@@ -66,7 +66,7 @@ setInterval(() => {
         for (let j = 0; j < 3; j++)
             canvasData.data[i * 4 + j] = 255 * (e + nextFrame[i] == 1 ? e * (1 - weight) + nextFrame[i] * weight : e)
         // if the colors are switching between frames, weight the two values and cross-fade
-        canvasData.data[i * 4 + 3] = 20;
+        canvasData.data[i * 4 + 3] = 5;
     })
     frame = (frame + 1) % interpolate;
     ctx.putImageData(canvasData, 0, 0);

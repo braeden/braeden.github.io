@@ -59,13 +59,14 @@ canvas {
     top: 0;
     left: 0;
     position: fixed;
-    /*  for cripsy edges
+    /*  for cripsy edges*/
+    
     image-rendering: optimizeSpeed;
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: -o-crisp-edges;
     image-rendering: pixelated;
-    -ms-interpolation-mode: nearest-neighbor; */
+    -ms-interpolation-mode: nearest-neighbor;
 }
 
 @keyframes pulse {
