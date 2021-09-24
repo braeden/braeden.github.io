@@ -1,5 +1,5 @@
 const emojis = ["🙋🏼‍♂️", "👋", "🤚", "🚀", "🤘", "😁", "👨🏼‍💻", "✌️", "🙌", "🤙", "🖖", "✨"];
-document.getElementById('emoji').innerText = emojis[Math.floor(Math.random() * emojis.length)];
+document.getElementById('emoji').textContent = emojis[Math.floor(Math.random() * emojis.length)];
 
 // Easter Egg :)
 document.getElementById('emoji').addEventListener('copy', () => {
@@ -26,14 +26,14 @@ document.getElementById('emoji').addEventListener('copy', () => {
 });
 
 const text = "Braeden Smith"
-document.getElementById('name').innerText = text[0]
+const header = document.getElementById('name')
+header.textContent = text[0]
 let typingIdx = 0
 const interval = setInterval(() => {
     while (text[++typingIdx] == " ") {}
-    document.getElementById('name').textContent = text.slice(0, typingIdx)
+    header.textContent = text.slice(0, typingIdx)
     if (typingIdx >= text.length) {
         clearInterval(interval)
-        return;
     }
 }, 60)
 
