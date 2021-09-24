@@ -34,7 +34,6 @@ const interval = setInterval(() => {
     header.textContent = text.slice(0, typingIdx)
     if (typingIdx >= text.length) {
         clearInterval(interval)
-        document.getElementById('top').focus()
     }
 }, 60)
 

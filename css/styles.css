@@ -3,7 +3,6 @@
     --primary-color: #000;
     --link-color: crimson;
     --accent-color: teal;
-
  }
 
  @media (prefers-color-scheme: dark) {
@@ -166,4 +165,5 @@ a {
 .footer a:hover {
     background-color: var(--primary-color);
     color: var(--background-color);
+
 }
